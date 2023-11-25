@@ -1,5 +1,24 @@
 # Symfony 6 CPANEL
 
+## Start Development
+
+```bash
+cd cpanel
+```
+
+### Start Web Server
+
+```bash
+symfony server:start
+```
+
+### Start Webpack Watch
+
+```bash
+yarn install
+yarn watch
+```
+
 ## Create Symfony Project
 
 ```bash
@@ -14,7 +33,20 @@ sudo apt install libnss3-tools
 curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
 sudo apt install symfony-cli
 symfony server:ca:install
-symfony server:start
+```
+
+## Install Node.js Ubuntu
+
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install -y curl
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+node --version
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+nvm install node
+nvm install 20
 ```
 
 ## Installing Packages
@@ -23,6 +55,12 @@ symfony server:start
 
 ```bash
 composer require symfony/debug-bundle --dev
+```
+
+### Profiler
+
+```bash
+composer require --dev symfony/profiler-pack
 ```
 
 ### Logger
@@ -156,7 +194,7 @@ symfony console make:controller HomeController
 
 ## Add Bootstrap to Project
 
-- https://getbootstrap.com/
+- https://getbootstrap.com
 
 ### Version 5.3
 
@@ -179,15 +217,46 @@ $primary: darken(#428bca, 20%);
 # assets/app.js
 // ...
 import './styles/global.scss';
+
+require("bootstrap");
 // ...
 ```
 
-## TODO: NEXT
+## Add FontAwesome to Project
 
+- https://fontawesome.com
+
+### Version 6.4.2
+
+```bash
+yarn add @fortawesome/fontawesome-free
+```
+
+```scss
+// assets/styles/global.scss
+
+// customize some Bootstrap variables
+$primary: darken(#428bca, 20%);
+
+// the ~ allows you to reference things in node_modules
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+```
+
+```javascript
+# assets/app.js
+// ...
+require("@fortawesome/fontawesome-free");
+// ...
+```
+
+
+## TODO: NEXT
+- Top Menu Boostrap
 - datatables
 - sweetalert2
 - jqueryui
-- fontAwesomeCSS
 - chartJS
 - toastrJS
 - select2JS

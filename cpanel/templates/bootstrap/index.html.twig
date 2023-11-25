@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BootstrapController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<h1>Hello
+			{{ controller_name }}! ✅</h1>
+
+		This friendly message is coming from:
+		<ul>
+			<li>Your controller at
+				<code>
+					<a href="{{ '/home/rcosta/symfony-cpanel/cpanel/src/Controller/BootstrapController.php'|file_link(0) }}">src/Controller/BootstrapController.php</a>
+				</code>
+			</li>
+			<li>Your template at
+				<code>
+					<a href="{{ '/home/rcosta/symfony-cpanel/cpanel/templates/bootstrap/index.html.twig'|file_link(0) }}">templates/bootstrap/index.html.twig</a>
+				</code>
+			</li>
+		</ul>
+	</div>
+
+	<h1>Base Template</h1>
+	<ul class="list-group">
+		<li class="list-group-item list-group-item-success"><i class="fa fa-link" aria-hidden="true"></i><a href="{{ path('app_bootstrap_buttons') }}" title="Buttons">Buttons</a></li>
+		<li class="list-group-item list-group-item-primary"><i class="fa fa-link" aria-hidden="true"></i><a href="{{ path('app_bootstrap_popovers') }}" title="Buttons">Popovers</a></li>
+		<li class="list-group-item list-group-item-secondary"><i class="fa fa-link" aria-hidden="true"></i><a href="{{ path('app_bootstrap_fontawesome') }}" title="Buttons">Fontawesome 6</a></li>
+		<li class="list-group-item list-group-item-danger">This is a danger list group item</li>
+		<li class="list-group-item list-group-item-warning">This is a warning list group item</li>
+		<li class="list-group-item list-group-item-info">This is a info list group item</li>
+		<li class="list-group-item list-group-item-light">This is a light list group item</li>
+		<li class="list-group-item list-group-item-dark">This is a dark list group item</li>
+	</ul>
+{% endblock %}

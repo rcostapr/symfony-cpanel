@@ -6,11 +6,12 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/global.scss';
-import './styles/app.css';
+import "./styles/global.scss";
+import "./styles/app.css";
 
-require('bootstrap');
+require("bootstrap");
+require("@fortawesome/fontawesome-free");
 
-$(function() {
+$(function () {
     $('[data-bs-toggle="popover"]').popover();
 });
