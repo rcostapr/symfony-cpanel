@@ -39,4 +39,12 @@ class BootstrapController extends AbstractController
             'controller_name' => 'BootstrapController',
         ]);
     }
+
+    #[Route('/bootstrap/badges', name: 'app_bootstrap_badges')]
+    public function badges(): Response
+    {
+        return $this->render('bootstrap/badges.html.twig', [
+            'controller_name' => 'BootstrapController',
+        ]);
+    }
 }

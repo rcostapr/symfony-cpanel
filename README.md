@@ -19,7 +19,7 @@ yarn install
 yarn watch
 ```
 
-## Create Symfony Project
+## Process of Create Symfony Project
 
 ```bash
 composer create-project symfony/skeleton:"6.3.*" cpanel
@@ -253,13 +253,15 @@ require("@fortawesome/fontawesome-free");
 
 
 ## TODO: NEXT
-- Top Menu Boostrap
-- datatables
+
+- toastrJS
 - sweetalert2
+- select2JS
+
+- datatables
+
 - jqueryui
 - chartJS
-- toastrJS
-- select2JS
 - perfectScrollbarJS
 - dropzoneJS
 - apexchartJS
