@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html.twig' %}
+
+{% block title %}Badges :: CPanel
+{% endblock %}
+
+{% block body %}
+	<div class="example-wrapper">
+		<h1>Toastr</h1>
+		<div class="row">
+			<button type="button" class="btn btn-primary mb-3">Primary</button>
+			<button type="button" class="btn btn-secondary mb-3">Secondary</button>
+			<button type="button" class="btn btn-success mb-3">Success</button>
+			<button type="button" class="btn btn-danger mb-3">Error</button>
+			<button type="button" class="btn btn-warning mb-3">Warning</button>
+			<button type="button" class="btn btn-info mb-3">Info</button>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('boostrap_toastr') }}
+{% endblock %}

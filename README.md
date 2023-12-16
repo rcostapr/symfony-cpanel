@@ -251,10 +251,33 @@ require("@fortawesome/fontawesome-free");
 // ...
 ```
 
+## Add toastr to Project
+- https://github.com/CodeSeven/toastr
+- https://codeseven.github.io/toastr/demo.html
+
+```bash
+yarn add toastr
+```
+
+### SCSS
+```scss
+// assets/styles/global.scss
+// ...
+@import "toastr";
+// ...
+```
+
+### Javascript
+```javascript
+# assets/app.js
+// ...
+import toastr from 'toastr'
+window.toastr = toastr
+// ...
+```
 
 ## TODO: NEXT
 
-- toastrJS
 - sweetalert2
 - select2JS
 

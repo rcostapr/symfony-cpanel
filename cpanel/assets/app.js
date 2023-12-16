@@ -11,6 +11,8 @@ import "./styles/app.css";
 
 require("bootstrap");
 require("@fortawesome/fontawesome-free");
+import toastr from "toastr";
+window.toastr = toastr;
 
 $(function () {
     $('[data-bs-toggle="popover"]').popover();

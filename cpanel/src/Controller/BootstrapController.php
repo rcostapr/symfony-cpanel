@@ -16,35 +16,11 @@ class BootstrapController extends AbstractController
         ]);
     }
 
-    #[Route('/bootstrap/buttons', name: 'app_bootstrap_buttons')]
-    public function buttons(): Response
+    #[Route('/bootstrap/{slug}', name: 'app_bootstrap_default')]
+    public function default(string $slug): Response
     {
-        return $this->render('bootstrap/buttons.html.twig', [
-            'controller_name' => 'BootstrapController',
-        ]);
-    }
-
-    #[Route('/bootstrap/popovers', name: 'app_bootstrap_popovers')]
-    public function popovers(): Response
-    {
-        return $this->render('bootstrap/popovers.html.twig', [
-            'controller_name' => 'BootstrapController',
-        ]);
-    }
-
-    #[Route('/bootstrap/fontawesome', name: 'app_bootstrap_fontawesome')]
-    public function fontawesome(): Response
-    {
-        return $this->render('bootstrap/fontawesome.html.twig', [
-            'controller_name' => 'BootstrapController',
-        ]);
-    }
-
-    #[Route('/bootstrap/badges', name: 'app_bootstrap_badges')]
-    public function badges(): Response
-    {
-        return $this->render('bootstrap/badges.html.twig', [
-            'controller_name' => 'BootstrapController',
+        return $this->render('bootstrap/' . $slug . '.html.twig', [
+            'controller_name' => 'BootstrapController::default',
         ]);
     }
 }
