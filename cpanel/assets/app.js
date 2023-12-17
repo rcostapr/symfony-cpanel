@@ -13,6 +13,8 @@ require("bootstrap");
 require("@fortawesome/fontawesome-free");
 import toastr from "toastr";
 window.toastr = toastr;
+import Swal from "sweetalert2/src/sweetalert2.js";
+window.Swal = Swal;
 
 $(function () {
     $('[data-bs-toggle="popover"]').popover();

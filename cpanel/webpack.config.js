@@ -24,6 +24,7 @@ Encore
 
     // Boostrap demo
     .addEntry("boostrap_toastr", "./assets/boostrap/toastr.js")
+    .addEntry("boostrap_sweetalert", "./assets/boostrap/sweetalert.js")
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

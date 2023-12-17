@@ -263,7 +263,7 @@ yarn add toastr
 ```scss
 // assets/styles/global.scss
 // ...
-@import "toastr";
+@import "~toastr/toastr";
 // ...
 ```
 
@@ -276,9 +276,38 @@ window.toastr = toastr
 // ...
 ```
 
+## Add SweetAlert2 to Project
+- https://sweetalert2.github.io
+
+```bash
+yarn add sweetalert2
+```
+
+### Install Themes
+
+```bash
+yarn add @sweetalert2/themes
+```
+
+### SCSS
+```scss
+// assets/styles/global.scss
+// ...
+@import "sweetalert2";
+// ...
+```
+
+### Javascript
+```javascript
+# assets/app.js
+// ...
+import Swal from 'sweetalert2/src/sweetalert2.js'
+window.Swal = Swal
+// ...
+```
+
 ## TODO: NEXT
 
-- sweetalert2
 - select2JS
 
 - datatables
