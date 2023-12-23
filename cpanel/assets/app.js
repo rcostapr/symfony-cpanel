@@ -20,3 +20,9 @@ import Swal from "sweetalert2/src/sweetalert2.js";
 window.Swal = Swal;
 import Dropzone from "dropzone";
 window.Dropzone = Swal;
+
+// require jQuery normally
+const $ = require("jquery");
+
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;
