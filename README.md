@@ -306,16 +306,78 @@ window.Swal = Swal
 // ...
 ```
 
-## TODO: NEXT
+## Add jqueryui to Project
+- https://jqueryui.com
 
-- select2JS
+```bash
+yarn add jquery-ui
+```
+
+### SCSS
+```scss
+// assets/styles/global.scss
+// ...
+@import '~jquery-ui/themes/base/all.css';
+// ...
+```
+
+### Javascript
+```javascript
+# assets/app.js
+// ...
+require("jquery-ui");
+require("jquery-ui/ui/widgets/datepicker");s
+// ...
+```
+
+## Add select2 to Project
+```bash
+yarn add select2-ui
+```
+
+### SCSS
+```scss
+// assets/styles/global.scss
+// ...
+@import '~select2/src/scss/theme/default/layout.scss';
+// ...
+```
+
+### Javascript
+```javascript
+# assets/app.js
+// ...
+require("select2");
+// ...
+```
+
+## Add Dropzone v6 to Project
+```bash
+yarn add select2-ui
+```
+
+### SCSS
+```scss
+// assets/styles/global.scss
+// ...
+@import '~select2/src/scss/theme/default/layout.scss';
+// ...
+```
+
+### Javascript
+```javascript
+# assets/app.js
+// ...
+import Dropzone from "dropzone";
+// ...
+```
+
+## TODO: NEXT
 
 - datatables
 
-- jqueryui
 - chartJS
 - perfectScrollbarJS
-- dropzoneJS
 - apexchartJS
 - nouisliderJS
 - dragulaJS

@@ -9,13 +9,14 @@
 import "./styles/global.scss";
 import "./styles/app.css";
 
+require("jquery-ui");
+require("jquery-ui/ui/widgets/datepicker");
+require("select2");
 require("bootstrap");
 require("@fortawesome/fontawesome-free");
 import toastr from "toastr";
 window.toastr = toastr;
 import Swal from "sweetalert2/src/sweetalert2.js";
 window.Swal = Swal;
-
-$(function () {
-    $('[data-bs-toggle="popover"]').popover();
-});
+import Dropzone from "dropzone";
+window.Dropzone = Swal;

@@ -7,4 +7,7 @@ $primary: darken(#428bca, 20%);
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~toastr/toastr";
-@import '~@sweetalert2/themes/material-ui/material-ui.scss';
+@import '~@sweetalert2/themes/bootstrap-4/bootstrap-4.scss';
+@import '~jquery-ui/themes/base/all.css';
+@import '~select2/src/scss/theme/default/layout.scss';
+@import '~dropzone/src/dropzone.scss';
