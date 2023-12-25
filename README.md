@@ -372,12 +372,32 @@ import Dropzone from "dropzone";
 // ...
 ```
 
+## Add Perfect Scrollbar 1.5.5 to Project
+```bash
+yarn add perfect-scrollbar
+```
+
+### SCSS
+```scss
+// assets/styles/global.scss
+// ...
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+// ...
+```
+
+### Javascript
+```javascript
+# assets/app.js
+// ...
+require("perfect-scrollbar");
+// ...
+```
+
 ## TODO: NEXT
 
 - datatables
 
 - chartJS
-- perfectScrollbarJS
 - apexchartJS
 - nouisliderJS
 - dragulaJS

@@ -11,8 +11,10 @@ import "./styles/app.css";
 
 require("jquery-ui");
 require("jquery-ui/ui/widgets/datepicker");
-require("select2");
+require("jquery-ui/ui/widgets/accordion");
 require("bootstrap");
+require("select2");
+require("perfect-scrollbar");
 require("@fortawesome/fontawesome-free");
 import toastr from "toastr";
 window.toastr = toastr;

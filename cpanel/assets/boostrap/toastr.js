@@ -10,7 +10,7 @@ $(function () {
     });
     $(".btn-info").on("click", function () {
         // Override global options
-        toastr.success("We do have the Kapua suite available.", "Turtle Bay Resort", {
+        toastr.info("We do have the Kapua suite available.", "Turtle Bay Resort", {
             timeOut: 5000,
             positionClass: "toast-bottom-right",
         });
