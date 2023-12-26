@@ -1,0 +1,134 @@
+<nav
+	class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+	<!-- Sidebar Toggle (Topbar) -->
+	<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+		<i class="fa fa-bars"></i>
+	</button>
+
+	<!-- Topbar Search -->
+	<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+		<div class="input-group">
+			<input type="text" class="form-control bg-light border-0 small nav-link dropdown-toggle" id="searchDropdown1" placeholder="Search for..." role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+			<div class="input-group-append">
+				<button class="btn btn-dark" type="button">
+					<i class="fas fa-search fa-sm"></i>
+				</button>
+			</div>
+			<!-- Dropdown - Search Information -->
+			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="searchDropdown1" style="width: 100%;"></div>
+		</div>
+	</form>
+
+	<!-- Topbar Navbar -->
+	<ul
+		class="navbar-nav ml-auto">
+		<!-- Nav Item - Search Dropdown (Visible Only XS) -->
+		<li class="nav-item dropdown no-arrow d-sm-none">
+
+			<a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+				<i class="fas fa-search fa-fw"></i>
+			</a>
+
+			<!-- Dropdown - Messages -->
+			<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+				<form class="form-inline mr-auto w-100 navbar-search">
+					<div class="input-group">
+						<input type="text" class="form-control bg-light border-0 small" id="searchDropdown2" placeholder="Search for..." role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+						<div class="input-group-append">
+							<button class="btn btn-dark" type="button">
+								<i class="fas fa-search fa-sm"></i>
+							</button>
+						</div>
+						<!-- Dropdown - Search Information -->
+						<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="searchDropdown2" style="width: 100%;"></div>
+					</div>
+
+				</form>
+			</div>
+
+		</li>
+
+		<!-- Nav Item - Alerts -->
+		<li class="nav-item dropdown no-arrow mx-1">
+			<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fas fa-bell fa-fw"></i>
+				<!-- Counter - Alerts -->
+				<span class="badge badge-danger badge-counter"></span>
+			</a>
+			<!-- Dropdown - Alerts -->
+			<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+				<h6 class="dropdown-header">
+					<i class="far fa-bell"></i>
+					Alertas
+				</h6>
+
+				<div id="alerts-content"></div>
+
+				<a class="dropdown-item text-center small text-gray-600" href="/user/alerts">
+					<i class="fas fa-bell"></i>
+					Mostar todos os Alertas</a>
+			</div>
+		</li>
+
+		<!-- Nav Item - Messages -->
+		<li class="nav-item dropdown no-arrow mx-1">
+			<a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fas fa-envelope fa-fw"></i>
+				<!-- Counter - Messages -->
+				<span class="badge badge-danger badge-counter"></span>
+			</a>
+			<!-- Dropdown - Messages -->
+			<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+				<h6 class="dropdown-header">
+					<i class="far fa-envelope"></i>
+					Mensagens
+				</h6>
+
+				<div id="messages-content"></div>
+
+				<a class="dropdown-item text-center small text-gray-600" href="/user/messages">
+					<i class="fas fa-comments"></i>
+					Mostrar Todas as Mensagens</a>
+			</div>
+		</li>
+
+		<div class="topbar-divider d-none d-sm-block"></div>
+
+		<!-- Nav Item - User Information -->
+		<li class="d-flex nav-item dropdown no-arrow">
+			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<div class="user-nav d-sm-flex d-none d-lg-inline">
+					<span class="mr-2 d-none d-lg-block small text-right">{{ app.session.get("username") }}</span>
+					<span class="mr-2 d-none d-lg-block small text-right">{{ app.session.get("email") }}</span>
+				</div>
+				{% if app.session.get('image') is not empty %}
+					<img class="img-profile rounded-circle" src="data:image/{{ app.session.get('image')['type']}};base64, {{ app.session.get('image')['data'] }}"/>
+				{% endif %}
+			</a>
+			<!-- Dropdown - User Information -->
+			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+				<a class="dropdown-item" href="/user/profile">
+					<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-600"></i>
+					Perfil
+				</a>
+				<a class="dropdown-item" href="/user/settings">
+					<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-600"></i>
+					Dados Pessoais
+				</a>
+				<a class="dropdown-item" href="/user/alerts">
+					<i class="fas fa-bell fa-sm fa-fw mr-2 text-gray-600"></i>
+					Alertas
+				</a>
+				<a class="dropdown-item" href="/user/messages">
+					<i class="fas fa-envelope-open-text fa-sm fa-fw mr-2 text-gray-600"></i>
+					Mensagens
+				</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="/logout">
+					<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-600"></i>
+					Sair
+				</a>
+			</div>
+		</li>
+	</ul>
+</nav>

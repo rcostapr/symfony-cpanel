@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient3-1">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop7" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop8" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop6" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3-2">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#e9bd4e;stop-opacity:0;"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient3-2"
+       id="linearGradient5"
+       gradientUnits="userSpaceOnUse"
+       x1="9.9407663"
+       y1="-4.8192811"
+       x2="32.367813"
+       y2="-4.8192811"
+       gradientTransform="matrix(1.2666953,0,0,1.2666953,-8.9744682,18.783795)" />
+  </defs>
+  <g
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:32.5023px;fill:#000000;stroke-width:11.509;stroke-dasharray:none;paint-order:stroke fill markers"
+       x="-1.168557"
+       y="24.533035"
+       id="text1"
+       transform="scale(0.78920272,1.2671016)"><tspan
+         id="tspan1"
+         x="-1.168557"
+         y="24.533035"
+         style="stroke-width:11.509;stroke-dasharray:none;paint-order:stroke fill markers" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Chilanka;-inkscape-font-specification:Chilanka;fill:#000000;stroke-width:0;stroke-dasharray:none;paint-order:stroke fill markers"
+       x="1.9049958"
+       y="3.5589719"
+       id="text2"><tspan
+         id="tspan2"
+         x="1.9049958"
+         y="3.5589719"
+         style="font-size:21.3333px;stroke-width:0;stroke-dasharray:none" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.0228px;font-family:Chilanka;-inkscape-font-specification:Chilanka;fill:#786721;stroke:url(#linearGradient5);stroke-width:5.32012;stroke-dasharray:none;paint-order:stroke fill markers"
+       x="2.2847867"
+       y="21.862761"
+       id="text3"
+       transform="scale(0.90604053,1.1037034)"><tspan
+         id="tspan3"
+         x="2.2847867"
+         y="21.862761"
+         style="stroke:url(#linearGradient5);stroke-width:5.32012;stroke-opacity:1;fill:#786721">CP</tspan></text>
+  </g>
+</svg>

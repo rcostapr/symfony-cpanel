@@ -1,7 +1,57 @@
 // customize some Bootstrap variables
-$primary: darken(#428bca, 20%);
+$brand-color: #8fb704;
+$primary: darken($brand-color, 20%);
+$secondary: darken(#4a665c, 20%);
+$info: darken(#428bca, 80%);
+$warning: #e8e812;
+$dark: #020f08;
+$light: #d8e2da;
+$danger: #dc3545;
+$success: #1c5f06;
+$collapse-button: #233926;
+$collapsed-selected: #162b30;
+$bg-primary:#002605;
+$black:darken($dark, 20%);
+$font-size-sm:14px;
+$border-radius-lg:6px;
+$box-shadow: 10px 10px 91px 3px $dark;
 
-// the ~ allows you to reference things in node_modules
+$green: #51A351;
+
+/* Popover */
+$popover-color:                     $brand-color;
+$popover-font-size:                 $font-size-sm;
+$popover-bg:                        $brand-color;
+$popover-max-width:                 276px;
+$popover-header-bg:                 shade-color($popover-bg, 6%);
+
+/* sweetalert2 */
+$swal2-white: $bg-primary;
+$swal2-black: $dark;
+$swal2-outline-color: lighten($swal2-black, 44);;
+$swal2-width: 20em;
+$swal2-padding: 0 0 1.25em;
+$swal2-border: none;
+$swal2-color: lighten($swal2-black, 33);
+$swal2-border-radius: 5px;
+$swal2-box-shadow: $box-shadow;
+$swal2-background: $swal2-white;
+$swal2-font-size: 1rem;
+$swal2-confirm-button-background-color: $collapse-button;
+$swal2-confirm-button-color: $swal2-white;
+$swal2-cancel-button-background-color: $secondary;
+$swal2-cancel-button-color: $swal2-white;
+$swal2-close-button-color: $secondary;
+$swal2-footer-color: darken($light, 10);
+
+/* === Import Bootstrap functions and variables === */
+@import "~bootstrap/scss/functions";
+@import "scss/functions";
+
+// Import Custom dashboard Variables (Overrides Default Bootstrap Variables)
+@import "scss/variables.scss";
+
+//// the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
@@ -12,3 +62,18 @@ $primary: darken(#428bca, 20%);
 @import '~select2/src/scss/theme/default/layout.scss';
 @import '~dropzone/src/dropzone.scss';
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+// Import Custom dashboard Mixins and Components
+@import "scss/mixins.scss";
+@import "scss/global.scss";
+@import "scss/utilities.scss";
+
+// Custom Components
+@import "scss/dropdowns.scss";
+@import "scss/navs.scss";
+@import "scss/buttons.scss";
+@import "scss/cards.scss";
+@import "scss/charts.scss";
+@import "scss/login.scss";
+@import "scss/error.scss";
+@import "scss/footer.scss";

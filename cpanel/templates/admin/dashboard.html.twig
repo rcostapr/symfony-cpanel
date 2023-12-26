@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ title }}
+{% endblock %}
+{% block description %}
+	{{ description }}
+{% endblock %}
+
+{% block body %}
+	<!-- End of Brand Mobiles -->
+	{% include 'admin/partials/brandmobile.html.twig' %}
+	<!-- End of Brand Mobiles -->
+
+	<!-- Page Wrapper -->
+		<div
+		id="wrapper"> <!-- Sidebar -->
+        {% include 'admin/partials/sidebar.html.twig' %}
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+			<div
+			id="content-wrapper" class="d-flex flex-column"> <!-- Main Content -->
+			<div
+				id="content">
+				<!-- Topbar -->
+                {% include 'admin/partials/topbar.html.twig' %}
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+					<div class="container-fluid">
+					{% block content %}{% endblock %}
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+            {% include 'admin/partials/footer.html.twig' %}
+			<!-- End of Footer -->
+		</div>
+		<!-- End of Content Wrapper -->
+	</div>
+	<!-- End of Page Wrapper -->
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}

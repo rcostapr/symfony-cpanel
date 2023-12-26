@@ -37,6 +37,7 @@ $(function () {
     });
     $(".btn-info").on("click", function () {
         Swal.fire({
+            icon: "question",
             title: "Custom animation with Animate.css",
             showClass: {
                 popup: `

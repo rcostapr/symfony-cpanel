@@ -1,0 +1,72 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+        <div class="sidebar-brand-icon">
+            <img alt="Logotipo {{ app.request.server.get('APP_BRAND') }}" src="{{ asset('img/brand.png') }}" width="auto" height="45" />
+        </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0" />
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-right d-none d-md-inline colpad">
+        <button class="border-0" id="sidebarToggle"></button>
+    </div>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item{{ app.request.pathinfo == '/admin' ? ' active' : '' }}">
+        <a class="nav-link" href="/admin">
+            <i class="fa-solid fa-gauge"></i>
+            <span>Dashboard</span></a>
+    </li>
+    {% if modules is defined and modules is not empty %}
+        {% for key,modules in group %}
+        {% if key == 'nogroup' %}
+        {% for menu in group['menus'] %}
+            {% for module in menu['modules'] %}
+                <li
+                            class="nav-item{{ app.request.pathinfo == '/' ~ group['url'] ~ '/' ~ module['url'] ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ '/' ~ group['url'] ~ '/' ~ module['url'] }}">
+                                <i class="{{ module['class'] }}"></i>
+                                <span>{{ module['text'] }}</span>
+                            </a>
+                        </li>
+            {% endfor %}
+        {% endfor %}
+        <!-- Divider -->
+                <hr class="sidebar-divider" />
+        {% else %}
+        <!-- Heading -->
+                <div class="sidebar-heading">
+                    {{ group['group'] }}
+                </div>
+
+                 {% for menu in group['menus'] %}
+                    <!-- Nav Item - Pages Collapse Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                            data-target="#collapse{{ menu['menu'] }}" aria-expanded="true"
+                            aria-controls="collapse{{ menu['menu'] }}">
+                            <i class="{{ menu['class'] }}"></i>
+                            <span>{{ menu['text'] }}</span>
+                        </a>
+                        <div id="collapse{{ menu['menu'] }}" class="collapse"
+                            aria-labelledby="heading{{ menu['menu'] }}" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                {% for module in menu['modules'] %}
+                                    <a class="collapse-item{{ app.request.pathinfo == '/' ~ group['url'] ~ '/' ~ menu['url'] ~ '/' ~ module['url'] ? ' active' : '' }}"
+                                        href="{{ '/' ~ group['url'] ~ '/' ~ menu['url'] ~ '/' ~ module['url'] }}">
+                                        <i class="{{ module['class'] }}"></i>
+                                        <span>{{ module['text'] }}</span>
+                                    </a>
+                               {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                 {% endfor %}
+
+        {% endif %}            
+        {% endfor %}
+    {% endif %}
+</ul>

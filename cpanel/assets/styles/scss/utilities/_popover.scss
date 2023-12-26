@@ -1,0 +1,38 @@
+.popover {
+    background-color: $popover-color;
+
+    &.bs-popover-top {
+        .arrow:after {
+            border-top-color: $popover-color;
+        }
+    }
+
+    &.bs-popover-right {
+        .arrow:after {
+            border-right-color: $popover-color;
+        }
+    }
+
+    &.bs-popover-bottom {
+        .arrow:after {
+            border-bottom-color: $popover-color;
+        }
+    }
+
+    &.bs-popover-left {
+        .arrow:after {
+            border-left-color: $popover-color;
+        }
+    }
+
+    .popover-body {
+        color: $gray-100;
+    }
+
+    .popover-header {
+        background-color: $popover-header-color;
+        color: $gray-200;
+        border-bottom-color: $gray-900;
+    }
+
+}

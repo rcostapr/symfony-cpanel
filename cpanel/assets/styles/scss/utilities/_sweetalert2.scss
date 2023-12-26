@@ -1,0 +1,47 @@
+.swal2-container {
+    .swal2-confirm {
+        background-color: $swal2-outline-color;
+
+        &:hover {
+            border-color: darken($swal2-outline-color, 10);
+            background-color: darken($swal2-outline-color, 20);
+        }
+    }
+
+    &.swal2-top-end {
+        .swal2-popup {
+            width: 20;
+            background-color: $swal2-background;
+
+            .swal2-header {
+                .swal2-title {
+                    color: $gray-300;
+                    font-size: 1.375em;
+                }
+            }
+        }
+    }
+
+    .swal2-footer {
+        color: $swal2-footer-color;
+
+        a {
+            color: $swal2-footer-color;
+        }
+    }
+
+    &.swal2-center {
+        .swal2-popup {
+            &.swal2-icon-error {
+                .swal2-confirm {
+                    background-color: $danger;
+
+                    &:hover {
+                        border-color: darken($danger, 40);
+                        background-color: darken($danger, 10);
+                    }
+                }
+            }
+        }
+    }
+}
