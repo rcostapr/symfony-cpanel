@@ -7,9 +7,32 @@
    viewBox="0 0 32 32"
    version="1.1"
    id="svg1"
+   inkscape:version="1.3.1 (9b9bdc1480, 2023-11-25, custom)"
+   sodipodi:docname="favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="25.5"
+     inkscape:cx="23.843137"
+     inkscape:cy="3.5882353"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="344"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <linearGradient
@@ -46,16 +69,19 @@
          id="stop4" />
     </linearGradient>
     <linearGradient
+       inkscape:collect="always"
        xlink:href="#linearGradient3-2"
        id="linearGradient5"
        gradientUnits="userSpaceOnUse"
-       x1="9.9407663"
-       y1="-4.8192811"
-       x2="32.367813"
-       y2="-4.8192811"
-       gradientTransform="matrix(1.2666953,0,0,1.2666953,-8.9744682,18.783795)" />
+       x1="10.799689"
+       y1="0.46965352"
+       x2="24.673782"
+       y2="-13.669789"
+       gradientTransform="matrix(1.1224544,0,0,1.1224544,-8.6229245,17.264518)" />
   </defs>
   <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
      id="layer1">
     <text
        xml:space="preserve"
@@ -64,6 +90,7 @@
        y="24.533035"
        id="text1"
        transform="scale(0.78920272,1.2671016)"><tspan
+         sodipodi:role="line"
          id="tspan1"
          x="-1.168557"
          y="24.533035"
@@ -74,20 +101,36 @@
        x="1.9049958"
        y="3.5589719"
        id="text2"><tspan
+         sodipodi:role="line"
          id="tspan2"
          x="1.9049958"
          y="3.5589719"
          style="font-size:21.3333px;stroke-width:0;stroke-dasharray:none" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.0228px;font-family:Chilanka;-inkscape-font-specification:Chilanka;fill:#786721;stroke:url(#linearGradient5);stroke-width:5.32012;stroke-dasharray:none;paint-order:stroke fill markers"
-       x="2.2847867"
-       y="21.862761"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.9457px;font-family:Chilanka;-inkscape-font-specification:Chilanka;fill:#786721;stroke:url(#linearGradient5);stroke-width:4.71431;stroke-dasharray:none;paint-order:stroke fill markers"
+       x="1.354219"
+       y="19.992876"
        id="text3"
-       transform="scale(0.90604053,1.1037034)"><tspan
+       transform="scale(0.77565282,1.2892366)"><tspan
+         sodipodi:role="line"
          id="tspan3"
-         x="2.2847867"
-         y="21.862761"
-         style="stroke:url(#linearGradient5);stroke-width:5.32012;stroke-opacity:1;fill:#786721">CP</tspan></text>
+         x="1.354219"
+         y="19.992876"
+         style="fill:#786721;stroke:url(#linearGradient5);stroke-width:4.71431;stroke-opacity:1"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:AnjaliOldLipi;-inkscape-font-specification:AnjaliOldLipi;stroke:url(#linearGradient5);stroke-width:4.71431"
+           id="tspan9">C</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.3144px;font-family:AnjaliOldLipi;-inkscape-font-specification:AnjaliOldLipi;fill:#806600;stroke:#474419;stroke-width:4.98377;stroke-dasharray:none;stroke-opacity:0.78030676;paint-order:stroke fill markers"
+       x="19.992418"
+       y="21.005024"
+       id="text10"
+       transform="scale(0.83724845,1.1943886)"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         x="19.992418"
+         y="21.005024"
+         style="fill:#806600;stroke:#474419;stroke-width:4.98377;stroke-opacity:0.78030676">P</tspan></text>
   </g>
 </svg>
