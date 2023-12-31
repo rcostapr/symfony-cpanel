@@ -19,7 +19,7 @@ $(function () {
     $(".btn-primary").on("click", function () {
         // Override global options
         toastr.success("We do have the Kapua suite available.", "Turtle Bay Resort", {
-            timeOut: 15000,
+            timeOut: 60000,
             closeButton: true,
             progressBar: true,
         });

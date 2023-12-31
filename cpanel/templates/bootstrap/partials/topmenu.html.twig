@@ -59,3 +59,21 @@
 		</div>
 	</div>
 </nav>
+<div class="container">
+{% if items is defined %}
+		<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			{% for key,item in items %}
+				{% if items|length == (key+1) %}
+					<li class="breadcrumb-item active" aria-current="page">{{ item['text'] }}</li>
+				{% else %}
+					<li class="breadcrumb-item">
+						<a href="{{ item['link'] }}">{{ item['text'] }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ol>
+	</nav>
+{% endif %}
+
+</div>
