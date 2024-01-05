@@ -194,7 +194,6 @@
         width: $sidebar-base-width !important;
 
         .nav-item {
-
             // Accordion
             .collapse {
                 position: relative;
@@ -275,7 +274,6 @@
             width: $sidebar-collapsed-width !important;
 
             .nav-item {
-
                 // Accordion
                 .collapse {
                     position: absolute;
@@ -285,7 +283,8 @@
                     // Grow In Animation for Toggled State
                     animation-name: growIn;
                     animation-duration: 200ms;
-                    animation-timing-function: transform cubic-bezier(0.18, 1.25, 0.4, 1),
+                    animation-timing-function:
+                        transform cubic-bezier(0.18, 1.25, 0.4, 1),
                         opacity cubic-bezier(0, 1, 0.4, 1);
 
                     .collapse-inner {
@@ -427,7 +426,7 @@
 .sidebar-dark {
     .sidebar-brand {
         color: $white;
-        background-color: $brand-color;
+        background-color: darken($brand-color, 5%);
     }
 
     hr.sidebar-divider {
@@ -490,6 +489,44 @@
         #sidebarToggle::after {
             color: fade-out($white, 0.2);
         }
+    }
+}
+
+.brand-top {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        .sidebar-brand {
+            .sidebar-brand-icon {
+                background-position: 16px 10px;
+            }
+        }
+    }
+
+    .brand-top {
+        display: block;
+        background-color: $brand-color;
+        padding: 2px 0;
+    }
+
+    .brand-top .brand-top-logo {
+        width: 176px;
+        height: 60px;
+        margin: auto;
+        background-image: url("../../../img/brand.png");
+        background-repeat: no-repeat;
+        background-position: -52px 0;
+        background-size: 230px;
+    }
+
+    .brand-top .brand-top-logo i {
+        font-size: 2rem;
+    }
+
+    .brand-top .brand-top-logo img {
+        display: none;
     }
 }
 
