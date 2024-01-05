@@ -12,10 +12,29 @@ cd cpanel
 symfony server:start
 ```
 
+### Change PHP Version to 8.3
+
+```bash
+sudo update-alternatives --config php
+There are 4 choices for the alternative php (providing /usr/bin/php).
+
+  Selection    Path             Priority   Status
+------------------------------------------------------------
+  0            /usr/bin/php8.4   84        auto mode
+* 1            /usr/bin/php7.4   74        manual mode
+  2            /usr/bin/php8.2   82        manual mode
+  3            /usr/bin/php8.3   83        manual mode
+  4            /usr/bin/php8.4   84        manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 0
+update-alternatives: using /usr/bin/php8.4 to provide /usr/bin/php (php) in auto mode
+```
+
+
 ### Start Webpack Watch
 
 ```bash
-yarn install
+yarn add
 yarn watch
 ```
 
@@ -87,11 +106,27 @@ composer require symfony/security-bundle
 composer require symfony/twig-bundle 
 ```
 
+## MySql [🔝](#menu)
+
+### Create User
+
+```bash
+create database cpanel;
+create user cpanel@localhost identified by "PASSWORD";
+grant all privileges on cpanel.* to cpanel@localhost;
+```
+
+### Doctrine
+
+```bash
+composer require symfony/orm-pack
+```
+
 ### Webpack Encore
 
 ```bash
 composer require symfony/webpack-encore-bundle
-yarn install
+yarn add
 ```
 
 #### Config
@@ -390,6 +425,79 @@ yarn add perfect-scrollbar
 # assets/app.js
 // ...
 require("perfect-scrollbar");
+// ...
+```
+
+## Add Datatables bootstrap 5 to project
+```bash
+# DataTables core *
+yarn add datatables.net-bs5
+ 
+# AutoFill *
+yarn add datatables.net-autofill-bs5
+ 
+# Buttons *
+yarn add datatables.net-buttons-bs5
+ 
+# ColReorder *
+yarn add datatables.net-colreorder-bs5
+ 
+# FixedColumns
+yarn add datatables.net-fixedcolumns-bs5
+ 
+# FixedHeader
+yarn add datatables.net-fixedheader-bs5
+ 
+# KeyTable
+yarn add datatables.net-keytable-bs5
+ 
+# RowGroup
+yarn add datatables.net-rowgroup-bs5
+ 
+# RowReorder
+yarn add datatables.net-rowreorder-bs5
+ 
+# Responsive *
+yarn add datatables.net-responsive-bs5
+ 
+# Scroller *
+yarn add datatables.net-scroller-bs5
+ 
+# SearchBuilder
+yarn add datatables.net-searchbuilder-bs5
+ 
+# SearchPanes
+yarn add datatables.net-searchpanes-bs5
+ 
+# Select
+yarn add datatables.net-select-bs5
+ 
+# StateRestore
+yarn add datatables.net-staterestore-bs5
+```
+
+### For the Buttons
+```
+yarn add jszip
+yarn add pdfmake
+```
+
+### SCSS
+```scss
+// assets/styles/global.scss
+// ...
+@import '~datatables.net-bs5/css/dataTables.bootstrap5.css';
+@import '~datatables.net-buttons-bs5/css/buttons.bootstrap5.css';
+// ...
+```
+
+### Javascript
+Working on this add buttons
+```javascript
+# assets/app.js
+// ...
+import DataTable from "datatables.net-bs5";
+window.DataTable = DataTable;
 // ...
 ```
 

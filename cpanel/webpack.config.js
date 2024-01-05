@@ -22,7 +22,7 @@ Encore
      */
     .addEntry("app", ["./assets/app.js", "./assets/js/library.js", "./assets/js/cpanel.js"])
 
-    // Boostrap demo
+    // Cpanel Boostrap
     .addEntry("boostrap_toastr", "./assets/boostrap/toastr.js")
     .addEntry("boostrap_sweetalert", "./assets/boostrap/sweetalert.js")
     .addEntry("boostrap_datepicker", "./assets/boostrap/datepicker.js")

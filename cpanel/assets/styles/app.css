@@ -10801,41 +10801,6 @@ table.dataTable tbody td:hover {
     width: 2rem;
 }
 
-.brand-top {
-    display: none;
-}
-
-@media (max-width: 767.98px) {
-    .brand-top {
-        display: block;
-        background-color: #8fb704;
-        padding: 2px 0;
-    }
-
-    .brand-top .brand-top-logo {
-        width: 176px;
-        height: 60px;
-        margin: auto;
-        background-image: url("../img/brand.png");
-        background-repeat: no-repeat;
-        background-position: -52px 0;
-        background-size: 230px;
-    }
-
-    .brand-top .brand-top-logo i {
-        font-size: 2rem;
-    }
-
-    .brand-top .brand-top-logo img {
-        display: none;
-    }
-}
-
-.colpad {
-    height: 55px;
-    padding: 7px 9px;
-}
-
 .btn-circle {
     border-radius: 100%;
     height: 2.5rem;

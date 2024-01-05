@@ -1,0 +1,22 @@
+{% extends 'admin/dashboard.html.twig' %}
+
+{% block title %}New Transcription
+{% endblock %}
+
+{% block content %}
+    <h2>New Transcription {{ process ? process }}</h2>
+    {% if sessions_audios is defined %}
+        {% for session, audios in sessions_audios %}
+            <h3>{{ session }}</h3>
+            {% for audio in audios %}
+            <h4>{{ audio }}</h4>
+            <audio controls>
+                <source src="/audio/{{ audio }}" type="audio/mpeg">
+            </audio>
+                <br>
+            {% endfor %}
+            <br>
+            <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

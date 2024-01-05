@@ -1,5 +1,6 @@
 // customize some Bootstrap variables
-$brand-color: #8fb704;
+// $brand-color: #8fb704;
+$brand-color: #0f80cc;
 $primary: darken($brand-color, 20%);
 $secondary: darken(#4a665c, 20%);
 $info: darken(#428bca, 80%);
@@ -8,27 +9,28 @@ $dark: #020f08;
 $light: #d8e2da;
 $danger: #dc3545;
 $success: #1c5f06;
-$collapse-button: #233926;
-$collapsed-selected: #162b30;
-$bg-primary:#002605;
-$black:darken($dark, 20%);
-$font-size-sm:14px;
-$border-radius-lg:6px;
+$collapse-button: darken($brand-color, 5%);
+$collapsed-selected: darken($brand-color, 30%);
+$bg-primary: darken($brand-color, 15%);
+$black: darken($dark, 20%);
+$font-size-sm: 14px;
+$border-radius-lg: 6px;
 $box-shadow: 10px 10px 91px 3px $dark;
+$collapsed-selected: darken($brand-color, 25%);
 
-$green: #51A351;
+$green: #51a351;
 
 /* Popover */
-$popover-color:                     $brand-color;
-$popover-font-size:                 $font-size-sm;
-$popover-bg:                        $brand-color;
-$popover-max-width:                 276px;
-$popover-header-bg:                 shade-color($popover-bg, 6%);
+$popover-color: $brand-color;
+$popover-font-size: $font-size-sm;
+$popover-bg: $brand-color;
+$popover-max-width: 276px;
+$popover-header-bg: shade-color($popover-bg, 6%);
 
 /* sweetalert2 */
 $swal2-white: $bg-primary;
 $swal2-black: $dark;
-$swal2-outline-color: lighten($swal2-black, 44);;
+$swal2-outline-color: lighten($swal2-black, 44);
 $swal2-width: 20em;
 $swal2-padding: 0 0 1.25em;
 $swal2-border: none;
@@ -57,11 +59,13 @@ $swal2-footer-color: darken($light, 10);
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~toastr/toastr";
-@import '~@sweetalert2/themes/bootstrap-4/bootstrap-4.scss';
-@import '~jquery-ui/themes/base/all.css';
-@import '~select2/src/scss/theme/default/layout.scss';
-@import '~dropzone/src/dropzone.scss';
-@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import "~@sweetalert2/themes/bootstrap-4/bootstrap-4.scss";
+@import "~jquery-ui/themes/base/all.css";
+@import "~select2/src/scss/theme/default/layout.scss";
+@import "~dropzone/src/dropzone.scss";
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+@import "~datatables.net-bs5/css/dataTables.bootstrap5.css";
+@import "~datatables.net-buttons-bs5/css/buttons.bootstrap5.css";
 
 // Import Custom dashboard Mixins and Components
 @import "scss/mixins.scss";

@@ -16,12 +16,27 @@ require("bootstrap");
 require("select2");
 require("perfect-scrollbar");
 require("@fortawesome/fontawesome-free");
+
+// ############ DataTables ############
+import DataTable from "datatables.net-bs5";
+import "datatables.net-buttons-bs5";
+import "datatables.net-scroller-bs5";
+import "datatables.net-autofill-bs5";
+import "datatables.net-responsive-bs5";
+import JSZip from "jszip"; // For Excel export
+import PDFMake from "pdfmake"; // For PDF export
+
+//DataTable.Buttons.jszip(JSZip);
+//DataTable.Buttons.pdfMake(PDFMake);
+window.DataTable = DataTable;
+// ############ DataTables ############
+
 import toastr from "toastr";
 window.toastr = toastr;
 import Swal from "sweetalert2/src/sweetalert2.js";
 window.Swal = Swal;
 import Dropzone from "dropzone";
-window.Dropzone = Swal;
+window.Dropzone = Dropzone;
 
 // require jQuery normally
 const $ = require("jquery");
