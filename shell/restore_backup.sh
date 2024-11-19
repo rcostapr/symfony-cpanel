@@ -13,9 +13,9 @@
 #   Restore : sh restore_backup.sh <remote_file_name>
 #
 ##################################################################
-DB=agregacao
-USERDB=agregacao
-PWD=agrega@simples2019
+DB=cpanel
+USERDB=cpanel
+PWD=AdminCpanel2024
 SSHUSER=rcosta
 IP=83.174.46.125
 
@@ -29,7 +29,7 @@ exit
 fi
 
 NOW=$(date +'%F %H:%M:%S')
-printf "\033[33m%s \033[32m== Get Remote File ==\033[39m\n"  "${NOW}"
+printf "\033[33m%s \033[32m== Get Remote File ==\033[39m\n" "${NOW}"
 # Get Existing File
 if [ $# -eq 1 ]; then
   FILE=$1.sql.zip
@@ -41,17 +41,17 @@ exit
   NOW=$(date +'%F %H:%M:%S')
   printf "\033[33m%s \033[32m== Database Restore Backup Start ==\033[39m\n" "${NOW}"
   NOW=$(date +'%F %H:%M:%S')
-  printf "\033[33m%s \033[32m== UNZIP backup ==\033[39m\n"  "${NOW}"
+  printf "\033[33m%s \033[32m== UNZIP backup ==\033[39m\n" "${NOW}"
   # UNZIP backup
   unzip "$FILE"
   NOW=$(date +'%F %H:%M:%S')
-  printf "\033[33m%s \033[32m== Restore backup ==\033[39m\n"  "${NOW}"
+  printf "\033[33m%s \033[32m== Restore backup ==\033[39m\n" "${NOW}"
   # Restore backup
-  mysql -u $USERDB -p$PWD $DB < "$1.sql"
+  mysql -u $USERDB -p$PWD $DB <"$1.sql"
   # Delete Files
   NOW=$(date +'%F %H:%M:%S')
-  printf "\033[33m%s \033[32m== Delete Files ==\033[39m\n"  "${NOW}"
+  printf "\033[33m%s \033[32m== Delete Files ==\033[39m\n" "${NOW}"
   rm "$1".sql*
   NOW=$(date +'%F %H:%M:%S')
-  printf "\033[33m%s \033[32m== Database Restore Backup End ==\033[39m\n"  "${NOW}"
+  printf "\033[33m%s \033[32m== Database Restore Backup End ==\033[39m\n" "${NOW}"
 fi
