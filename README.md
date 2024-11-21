@@ -4,6 +4,10 @@
 
 ```bash
 cd cpanel
+composer install
+yarn install
+yarn build
+php bin/console c:c
 ```
 
 ### Start Web Server
@@ -287,6 +291,7 @@ require("@fortawesome/fontawesome-free");
 ```
 
 ## Add toastr to Project
+
 - https://github.com/CodeSeven/toastr
 - https://codeseven.github.io/toastr/demo.html
 
@@ -295,6 +300,7 @@ yarn add toastr
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -303,6 +309,7 @@ yarn add toastr
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -312,6 +319,7 @@ window.toastr = toastr
 ```
 
 ## Add SweetAlert2 to Project
+
 - https://sweetalert2.github.io
 
 ```bash
@@ -325,6 +333,7 @@ yarn add @sweetalert2/themes
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -333,6 +342,7 @@ yarn add @sweetalert2/themes
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -342,6 +352,7 @@ window.Swal = Swal
 ```
 
 ## Add jqueryui to Project
+
 - https://jqueryui.com
 
 ```bash
@@ -349,6 +360,7 @@ yarn add jquery-ui
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -357,6 +369,7 @@ yarn add jquery-ui
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -366,11 +379,13 @@ require("jquery-ui/ui/widgets/datepicker");s
 ```
 
 ## Add select2 to Project
+
 ```bash
 yarn add select2-ui
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -379,6 +394,7 @@ yarn add select2-ui
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -387,11 +403,13 @@ require("select2");
 ```
 
 ## Add Dropzone v6 to Project
+
 ```bash
 yarn add select2-ui
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -400,6 +418,7 @@ yarn add select2-ui
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -408,11 +427,13 @@ import Dropzone from "dropzone";
 ```
 
 ## Add Perfect Scrollbar 1.5.5 to Project
+
 ```bash
 yarn add perfect-scrollbar
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -421,6 +442,7 @@ yarn add perfect-scrollbar
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -429,6 +451,7 @@ require("perfect-scrollbar");
 ```
 
 ## Add Datatables bootstrap 5 to project
+
 ```bash
 # DataTables core *
 yarn add datatables.net-bs5
@@ -477,12 +500,14 @@ yarn add datatables.net-staterestore-bs5
 ```
 
 ### For the Buttons
+
 ```
 yarn add jszip
 yarn add pdfmake
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -492,6 +517,7 @@ yarn add pdfmake
 ```
 
 ### Javascript
+
 Working on this add buttons
 ```javascript
 # assets/app.js

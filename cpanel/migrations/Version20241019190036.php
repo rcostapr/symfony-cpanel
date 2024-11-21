@@ -14,7 +14,7 @@ final class Version20241019190036 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return '';
+        return 'Create Transcription';
     }
 
     public function up(Schema $schema): void

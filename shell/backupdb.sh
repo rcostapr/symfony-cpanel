@@ -1,12 +1,15 @@
 #!/bin/bash
 # DATABASE BACKUP SYSTEM
 ## CREATE BACKUP and REMOVE 4 DAYS AGO BACKUP
-BCK=$(date +%F)
-BCKREMOVE=$([ "$(uname)" = Linux ] && date --date="4 days ago" +"%F" || date -v-4d +"%Y"-"%m"-"%d")
+
 FOLDER="./backup/db"
 DB=cpanel
 USERDB=cpanel
 PWD=AdminCpanel2024
+
+BCK=$(date +%F)
+BCKREMOVE=$([ "$(uname)" = Linux ] && date --date="4 days ago" +"%F" || date -v-4d +"%Y"-"%m"-"%d")
+
 ## CHECK IF FOLDER EXIST
 if [ ! -d $FOLDER ]; then
     NOW=$(date +'%F %H:%M:%S')

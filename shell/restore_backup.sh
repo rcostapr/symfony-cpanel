@@ -16,28 +16,15 @@
 DB=cpanel
 USERDB=cpanel
 PWD=AdminCpanel2024
-SSHUSER=rcosta
-IP=83.174.46.125
+FOLDER="./backup/db"
 
-remote_dir="/backup/vhost/agregacao.energiasimples.pt/backup/db"
 if [ $# -eq 0 ]; then
-  sftp $SSHUSER@$IP <<%EOF%
-cd $remote_dir
-ls -1t
+ls -1t $FOLDER | sed -e 's/\.sql\.zip$//'
 exit
-%EOF%
 fi
 
-NOW=$(date +'%F %H:%M:%S')
-printf "\033[33m%s \033[32m== Get Remote File ==\033[39m\n" "${NOW}"
-# Get Existing File
 if [ $# -eq 1 ]; then
-  FILE=$1.sql.zip
-  sftp $SSHUSER@$IP <<%EOF%
-cd $remote_dir
-mget $FILE
-exit
-%EOF%
+  FILE=$FOLDER/$1.sql.zip
   NOW=$(date +'%F %H:%M:%S')
   printf "\033[33m%s \033[32m== Database Restore Backup Start ==\033[39m\n" "${NOW}"
   NOW=$(date +'%F %H:%M:%S')
@@ -53,5 +40,5 @@ exit
   printf "\033[33m%s \033[32m== Delete Files ==\033[39m\n" "${NOW}"
   rm "$1".sql*
   NOW=$(date +'%F %H:%M:%S')
-  printf "\033[33m%s \033[32m== Database Restore Backup End ==\033[39m\n" "${NOW}"
+  printf "\033[33m%s \033[32m== Restore Database Backup End ==\033[39m\n" "${NOW}"
 fi
