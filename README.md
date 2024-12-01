@@ -106,6 +106,22 @@ composer require symfony/security-bundle
 composer require symfony/twig-bundle 
 ```
 
+### DoctrineMigrations
+
+[DoctrineMigrationsBundle](https://symfony.com/bundles/DoctrineMigrationsBundle/current/index.html)
+
+```bash
+composer require doctrine/doctrine-migrations-bundle
+```
+
+```php
+// config/bundles.php
+return [
+    // ...
+    Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
+];
+```
+
 ## MySql [🔝](#menu)
 
 ### Create User
@@ -120,6 +136,16 @@ grant all privileges on cpanel.* to cpanel@localhost;
 
 ```bash
 composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+```
+#### Cr
+
+#### Create New Migration
+
+```bash
+php bin/console doctrine:migrations:generate
+php bin/console doctrine:migrations:status
+php bin/console doctrine:migrations:migrate
 ```
 
 ### Webpack Encore
@@ -276,6 +302,7 @@ $primary: darken(#428bca, 20%);
 // the ~ allows you to reference things in node_modules
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 ```
 
@@ -475,7 +502,18 @@ yarn add datatables.net-select-bs5
 # StateRestore
 yarn add datatables.net-staterestore-bs5
 ```
-
+```bash
+"./js/vendor/datatables/jquery.dataTables.js",
+"./js/vendor/datatables/dataTables.bootstrap4.js",
+"./js/vendor/datatables/dataTables.buttons.js",
+//"./js/vendor/datatables/buttons.colVis.js",
+//"./js/vendor/datatables/buttons.flash.js",
+"./js/vendor/datatables/jszip.js",
+"./js/vendor/datatables/pdfmake.js",
+"./js/vendor/datatables/vfs_fonts.js",
+"./js/vendor/datatables/buttons.html5.js",
+"./js/vendor/datatables/buttons.print.js",
+```
 ### For the Buttons
 ```
 yarn add jszip
