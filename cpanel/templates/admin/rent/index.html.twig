@@ -1,0 +1,16 @@
+{% extends 'admin/dashboard.html.twig' %}
+
+{% block title %}Rents{% endblock %}
+
+{% block description %}
+    {{ description }}
+{% endblock %}
+
+{% block content %}
+    <h2>Rents</h2>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{ asset('js/admin/rent/index.js') }}"></script>
+{% endblock %}

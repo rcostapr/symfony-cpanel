@@ -1,89 +1,5 @@
-$.datepicker.regional.pt = {
-    closeText: "Fechar",
-    prevText: "Anterior",
-    nextText: "Seguinte",
-    currentText: "Hoje",
-    monthNames: [
-        "Janeiro",
-        "Fevereiro",
-        "Março",
-        "Abril",
-        "Maio",
-        "Junho",
-        "Julho",
-        "Agosto",
-        "Setembro",
-        "Outubro",
-        "Novembro",
-        "Dezembro",
-    ],
-    monthNamesShort: [
-        "Jan",
-        "Fev",
-        "Mar",
-        "Abr",
-        "Mai",
-        "Jun",
-        "Jul",
-        "Ago",
-        "Set",
-        "Out",
-        "Nov",
-        "Dez",
-    ],
-    dayNames: [
-        "domingo",
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta",
-        "sábado",
-    ],
-    dayNamesShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
-    dayNamesMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
-    weekHeader: "Sem",
-    dateFormat: "dd/mm/yy",
-    firstDay: 1,
-    isRTL: false,
-    showMonthAfterYear: false,
-    yearSuffix: "",
-};
-$.datepicker.setDefaults($.datepicker.regional.pt);
-$.fn.select2.defaults.set("theme", "bootstrap4");
-$.fn.select2.defaults.set("language", "pt");
-Dropzone.autoDiscover = false;
-$(function () {
-    $("#adminmodal").on("hidden.bs.modal", function (e) {
-        $(this).find(".modal-title").empty();
-        $(this).find(".modal-body").empty();
-        if (!$(this).find(".modal-dialog").hasClass("modal-xl")) {
-            $(this).find(".modal-dialog").addClass("modal-xl");
-        }
-    });
-
-    $(".btn-active").on("click", function () {
-        toggleActive($(this));
-    });
-
-    registerRawData();
-});
-
-function registerRawData() {
-    $(".btn-raw").on("click", function () {
-        if ($(this).hasClass("btn-raw-up")) {
-            $(this).removeClass("btn-raw-up");
-            $(this).addClass("btn-raw-down");
-        } else {
-            $(this).removeClass("btn-raw-down");
-            $(this).addClass("btn-raw-up");
-        }
-        let element = $(this).closest(".card").find(".card-body");
-        $(element).slideToggle(500);
-    });
-}
-
-function scrollToElement(element) {
+import "./blockUI/jquery.blockUI.js";
+export function scrollToElement(element) {
     if (element) {
         $("html,body").animate(
             {
@@ -94,7 +10,7 @@ function scrollToElement(element) {
     }
 }
 
-function clearOptions(element) {
+export function clearOptions(element) {
     let options = element.find("option");
     options.each(function (index) {
         option = $(this);
@@ -106,7 +22,7 @@ function clearOptions(element) {
     });
 }
 
-function sendRequestTo(url, btn, params, callback = null) {
+export function sendRequestTo(url, btn, params, callback = null) {
     btn.addClass("btn-spin");
     let container = btn.closest(".card").find(".card-body");
     if (container.length > 0) {
@@ -163,7 +79,7 @@ function sendRequestTo(url, btn, params, callback = null) {
     });
 }
 
-function sendFormTo(url, formData, callback = null) {
+export function sendFormTo(url, formData, callback = null) {
     // Block Screen
     let blockOptions = getBlockOptions();
     $.blockUI(blockOptions);
@@ -217,28 +133,33 @@ function sendFormTo(url, formData, callback = null) {
                     $.unblockUI();
                     // Release buttons
                     btn.attr("disabled", false);
-                }
+                },
             });
             return false;
         },
     });
 }
 
-function getDataTableOptions(orientation = null) {
-    let setOrientation = 'landscape';
-    if (orientation && (orientation == 'landscape' || orientation == 'portrait')) {
+export function getDataTableOptions(orientation = null) {
+    let setOrientation = "landscape";
+    if (orientation && (orientation == "landscape" || orientation == "portrait")) {
         setOrientation = orientation;
     }
     return {
         dom: "lBfrtip",
         buttons: [
             {
-                extend: "copyHtml5", className: "btn btn-copy btn-color-white btn-background", title: "Copiar",
+                extend: "copy",
+                className: "btn btn-copy btn-color-white btn-background",
+                title: "Copiar",
             },
-            { extend: "csvHtml5", className: "btn btn-csv" },
-            { extend: "excelHtml5", className: "btn btn-excel" },
+            { extend: "csv", className: "btn btn-csv" },
+            { extend: "excel", className: "btn btn-excel" },
             {
-                extend: "pdfHtml5", className: "btn btn-pdf", orientation: setOrientation, pageSize: 'A4',
+                extend: "pdf",
+                className: "btn btn-pdf",
+                orientation: setOrientation,
+                pageSize: "A4",
                 customize: function (doc) {
                     doc.pageMargins = [15, 10, 10, 10];
                     doc.defaultStyle.fontSize = 6;
@@ -248,10 +169,9 @@ function getDataTableOptions(orientation = null) {
                 },
                 footer: true,
             },
-            { extend: "print", className: "btn btn-print" },
         ],
         language: {
-            url: '/js/vendor/i18n/datatables/pt_pt.json'
+            url: "/js/vendor/i18n/datatables/pt_pt.json",
         },
         language: {
             decimal: ".",
@@ -277,20 +197,21 @@ function getDataTableOptions(orientation = null) {
                 sortDescending: ": Ordenar Descendente",
             },
             buttons: {
-                "copy": "Copiar",
+                copy: "Copiar",
                 copySuccess: {
                     1: "Copiado um registo para clipboard",
-                    _: "Copiados %d registos para clipboard"
+                    _: "Copiados %d registos para clipboard",
                 },
-                copyTitle: 'Copiar para clipboard',
-                copyKeys: "Pressionar CTRL ou u2318 + C para copiar a informação para a área de transferência. Para cancelar, clique nesta mensagem ou pressione ESC."
+                copyTitle: "Copiar para clipboard",
+                copyKeys:
+                    "Pressionar CTRL ou u2318 + C para copiar a informação para a área de transferência. Para cancelar, clique nesta mensagem ou pressione ESC.",
             },
         },
         paging: false,
     };
 }
 
-function getSimpleDataTableOptions() {
+export function getSimpleDataTableOptions() {
     return {
         dom: "lBfrtip",
         buttons: [],
@@ -322,7 +243,7 @@ function getSimpleDataTableOptions() {
     };
 }
 
-function getToastrOptions() {
+export function getToastrOptions() {
     return {
         closeButton: false,
         debug: false,
@@ -343,7 +264,7 @@ function getToastrOptions() {
     };
 }
 
-function toggleActive(btn) {
+export function toggleActive(btn) {
     btn.prop("disabled", true);
     let active = btn.data("active");
     let checkbox = btn.find(".far");
@@ -366,7 +287,7 @@ function toggleActive(btn) {
     }, 500);
 }
 
-function setActive(btn) {
+export function setActive(btn) {
     let active = btn.data("active");
     let checkbox = btn.find(".far");
 
@@ -423,7 +344,7 @@ let showBase64File = (content, filename, type) => {
     window.location.replace(uriContent);
 };
 
-function number_format(number, decimals, dec_point, thousands_sep) {
+export function number_format(number, decimals, dec_point, thousands_sep) {
     // *     example: number_format(1234.56, 2, ',', ' ');
     // *     return: '1 234,56'
     number = (number + "").replace(",", "").replace(" ", "");
@@ -448,18 +369,13 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     return s.join(dec);
 }
 
-function bs_input_file() {
+export function bs_input_file() {
     $(".input-file").before(function () {
         if (!$(this).prev().hasClass("input-ghost")) {
-            var element = $(
-                "<input type='file' class='input-ghost' style='visibility:hidden; height:0'>"
-            );
+            var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
             element.attr("name", $(this).attr("name"));
             element.on("change", function () {
-                element
-                    .next(element)
-                    .find("input")
-                    .val(element.val().split("\\").pop());
+                element.next(element).find("input").val(element.val().split("\\").pop());
             });
             $(this)
                 .find("button.btn-choose")
@@ -484,7 +400,7 @@ function bs_input_file() {
     });
 }
 
-function limitChar(textarea) {
+export function limitChar(textarea) {
     let eldivcount = textarea.parent().find("div.countdown");
     let msg = textarea.val();
     let limit = 500;
@@ -496,18 +412,13 @@ function limitChar(textarea) {
     }
 }
 
-function datePicker(elem) {
+export function datePicker(elem) {
     /**
      * Datepicker
      */
     const d = new Date();
 
-    const today =
-        ("0" + d.getDate()).slice(-2) +
-        "-" +
-        ("0" + (d.getMonth() + 1)).slice(-2) +
-        "-" +
-        d.getFullYear();
+    const today = ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + d.getFullYear();
 
     elem.attr("readonly", true);
     elem.css("cursor", "pointer");
@@ -522,30 +433,22 @@ function datePicker(elem) {
 
     elem.datepicker(options);
     elem.on("change", checkValidDate);
-
 }
 
 /**
- * 
+ *
  * @param {jQuery} pickIni Data initial
  * @param {jQuery} pickEnd Data final
  * @param {boolean} update Is to update date in pickIni and pickEnd
  * @param {jQuery} element Element to push after onSelect method
  */
-function dateRange(pickIni, pickEnd, update = false, element = null) {
-
+export function dateRange(pickIni, pickEnd, update = false, element = null) {
     /**
      * Datepicker
      */
     const d = new Date();
 
-    const today =
-        ("0" + d.getDate()).slice(-2) +
-        "-" +
-        ("0" + (d.getMonth() + 1)).slice(-2) +
-        "-" +
-        d.getFullYear();
-
+    const today = ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + d.getFullYear();
 
     const priorDate = new Date(d.getTime() + 30 * 24 * 60 * 60 * 1000);
 
@@ -574,13 +477,15 @@ function dateRange(pickIni, pickEnd, update = false, element = null) {
         defaultDate: 0,
         onSelect: function (current, prev) {
             pickEnd.datepicker("option", "minDate", current);
-            if (element) { element.trigger("click"); }
+            if (element) {
+                element.trigger("click");
+            }
         },
         beforeShow: function (input, inst) {
-            $(document).off('focusin.bs.modal');
+            $(document).off("focusin.bs.modal");
         },
         onClose: function () {
-            $(document).on('focusin.bs.modal');
+            $(document).on("focusin.bs.modal");
         },
     };
 
@@ -592,13 +497,15 @@ function dateRange(pickIni, pickEnd, update = false, element = null) {
         minDate: pickIni.val(),
         defaultDate: 30,
         onSelect: function (current, prev) {
-            if (element) { element.trigger("click"); }
+            if (element) {
+                element.trigger("click");
+            }
         },
         beforeShow: function (input, inst) {
-            $(document).off('focusin.bs.modal');
+            $(document).off("focusin.bs.modal");
         },
         onClose: function () {
-            $(document).on('focusin.bs.modal');
+            $(document).on("focusin.bs.modal");
         },
     };
 
@@ -615,24 +522,18 @@ function dateRange(pickIni, pickEnd, update = false, element = null) {
 }
 
 /**
- * 
+ *
  * @param {jQuery} pickIni Data initial
  * @param {jQuery} element Element to push after onSelect method
  */
-function pickdate(pickIni, element = null) {
-
+export function pickdate(pickIni, element = null) {
     let update = pickIni.val() == "" ? false : true;
     /**
      * Datepicker
      */
     const d = new Date();
 
-    const today =
-        ("0" + d.getDate()).slice(-2) +
-        "-" +
-        ("0" + (d.getMonth() + 1)).slice(-2) +
-        "-" +
-        d.getFullYear();
+    const today = ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + d.getFullYear();
 
     pickIni.attr("readonly", true);
     pickIni.css("cursor", "pointer");
@@ -648,13 +549,15 @@ function pickdate(pickIni, element = null) {
         changeYear: true,
         defaultDate: 0,
         onSelect: function (current, prev) {
-            if (element) { element.trigger("click"); }
+            if (element) {
+                element.trigger("click");
+            }
         },
         beforeShow: function (input, inst) {
-            $(document).off('focusin.bs.modal');
+            $(document).off("focusin.bs.modal");
         },
         onClose: function () {
-            $(document).on('focusin.bs.modal');
+            $(document).on("focusin.bs.modal");
         },
     };
 
@@ -667,7 +570,7 @@ function pickdate(pickIni, element = null) {
     pickIni.on("change", checkValidDate);
 }
 
-function checkValidDate() {
+export function checkValidDate() {
     let d = $(this);
     let darr = d.val().split("-");
     if (darr.length !== 3) {
@@ -689,40 +592,42 @@ function checkValidDate() {
     }
 }
 
-
-function getBlockOptions(text = null) {
+export function getBlockOptions(text = null) {
     let defaultColor = "#10163a";
     let defaultOptions = {
         message: '<div class="spinner-border text-primary" style="width: 2rem; height: 2rem;" role="status"></div>',
         overlayCSS: {
             backgroundColor: defaultColor,
-            cursor: "wait"
+            cursor: "wait",
         },
         css: {
             border: 0,
             padding: 0,
-            backgroundColor: "none"
-        }
+            backgroundColor: "none",
+        },
     };
 
     let infoOptions = {
-        message: '<div><i class="feather-icon icon-refresh-cw icon-spin mr-2"></i><span id="blockinfo">' + text + '</span></div>',
+        message:
+            '<div><i class="feather-icon icon-refresh-cw icon-spin mr-2"></i><span id="blockinfo">' +
+            text +
+            "</span></div>",
         overlayCSS: {
             backgroundColor: defaultColor,
-            cursor: 'wait',
+            cursor: "wait",
         },
         css: {
             border: 1,
             padding: 10,
-            backgroundColor: '#00303c',
-            color: '#fff',
-        }
+            backgroundColor: "#00303c",
+            color: "#fff",
+        },
     };
 
     return text ? infoOptions : defaultOptions;
 }
 
-function blockElementTimeOut(element, timeout) {
+export function blockElementTimeOut(element, timeout) {
     // Block Element
     element.block(getBlockOptions(timeout));
 
@@ -734,11 +639,10 @@ function blockElementTimeOut(element, timeout) {
     setTimeout(function (e) {
         clearInterval(ti);
         element.unblock();
-
     }, timeout * 1000);
 }
 
-function setFormReadOnly(container) {
+export function setFormReadOnly(container) {
     container.find("button[type=submit]").remove();
     container.find("input").attr("readonly", true);
     container.find("input").datepicker("disable");
@@ -753,12 +657,11 @@ function setFormReadOnly(container) {
     container.find("#imageplace").off();
 }
 
-
-function showData(data) {
+export function showData(data) {
     let modal = $("#adminmodal");
     let container = modal.find(".modal-body");
     container.html(data.html);
-    let title = 'Registo Detalhes';
+    let title = "Registo Detalhes";
     if (data.title) {
         title = data.title;
     }
@@ -768,7 +671,7 @@ function showData(data) {
     return container;
 }
 
-function getBase64FromImageUrl(url, width = null, height = null) {
+export function getBase64FromImageUrl(url, width = null, height = null) {
     return new Promise((resolve, reject) => {
         var img = new Image();
         img.setAttribute("crossOrigin", "anonymous");
@@ -786,13 +689,12 @@ function getBase64FromImageUrl(url, width = null, height = null) {
                 ctx.drawImage(img, 0, 0);
             }
 
-
             var dataURL = canvas.toDataURL("image/png");
 
             resolve(dataURL);
         };
 
-        img.onerror = error => {
+        img.onerror = (error) => {
             reject(error);
         };
 
@@ -800,7 +702,7 @@ function getBase64FromImageUrl(url, width = null, height = null) {
     });
 }
 
-function getData() {
+export function getData() {
     let date_ob = new Date();
     // current date
     // adjust 0 before single digit date

@@ -23,12 +23,50 @@
 			<span>Dashboard</span>
 		</a>
 	</li>
-	<li class="nav-item{{ app.request.pathinfo == '/admin/transcription' ? ' active' : '' }}">
-		<a class="nav-link" href="/admin/transcription">
-			<i class="fas fa-won-sign"></i>
-			<span>Transcription</span>
-		</a>
-	</li>
+	<!-- # config/packages/twig.yaml -->
+	{% if menu is defined and menu.sidebar is defined and menu.sidebar is not empty %}
+		{% for groupkey, group in menu.sidebar %}
+			<!-- Group Nav item with one item only - no group  -->
+			{% if group.items|length == 1 %}
+				{% set item = group.items[0] %}
+				<li class="nav-item{{ app.request.pathinfo == item.href ? ' active' : '' }}">
+					<a class="nav-link" href="{{ item.href }}">
+						<i class="{{ item.class }}"></i>
+						<span>{{ item.text }}</span>
+					</a>
+				</li>
+			{% elseif group.items|length > 1 %}
+				<!-- Nav Item - Pages Collapse Menu -->
+				<li class="nav-item">
+					<button 
+						class="nav-link collapsed"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#collapse{{ groupkey }}"
+						aria-expanded="false"
+						aria-controls="collapse{{ groupkey }}"> 
+						<i class="{{ group.class }}"></i>
+						<span>{{ group.text }}</span>
+					</button>
+					<div id="collapse{{ groupkey }}" class="collapse">
+						<div class="bg-white collapse-inner rounded">
+							<ul class="m-0 p-0">
+							{% for item in group.items %}
+								<li class="nav-item{{ app.request.pathinfo == item.href ? ' active' : '' }}">
+									<a class="nav-link" href="{{ item.href }}">
+										<i class="{{ item.class }}"></i>
+										<span>{{ item.text }}</span>
+									</a>
+								</li>
+							{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</li>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	<!-- # Database Menu Modules -->
 	{% if modules is defined and modules is not empty %}
 		{% for key, modules in group %}
 			{% if key == 'nogroup' %}

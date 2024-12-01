@@ -1,5 +1,37 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    globals:
+        menu:
+            sidebar:
+                transcription:
+                    text: 'Transcription'
+                    class: 'fas fa-won-sign'
+                    items: 
+                        -
+                            text: Transcription
+                            href: /admin/transcription
+                            class: 'fas fa-won-sign'
+                rent:
+                    text: 'Rent'
+                    class: 'fas fa-money-bill'
+                    items:
+                        -
+                            text: Rents
+                            href: /admin/rent
+                            class: 'fas fa-money-bill'
+                        -
+                            text: Landlord
+                            href: /admin/rent/landlord
+                            class: 'fas fa-money-bill'
+                        -
+                            text: Tenant
+                            href: /admin/rent/tenant
+                            class: 'fa-solid fa-user-tie'
+                        -
+                            text: Property
+                            href: /admin/rent/property
+                            class: 'fa-solid fa-house'
+
 
 when@test:
     twig:

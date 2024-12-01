@@ -1,0 +1,43 @@
+{% extends 'admin/dashboard.html.twig' %}
+
+{% block title %}LandLord{% endblock %}
+
+{% block description %}
+    {{ description }}
+{% endblock %}
+
+{% block content %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Landlord</h1>
+    </div>
+
+    <!-- Content container-fluid -->
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <div class="container-fluid d-flex justify-content-between">
+                    <h6 class="m-0 font-weight-bold d-inline-block">Landlord Management</h6>
+                    <div class="form-group col-lg-3 text-right">
+                        <label for="active-only">Somente Ativos</label>
+                        <button id="active-only" type="button" title="Marcar/DesMarcar" class="btn btn-item-card btn-active m-0 p-0" data-active="0">
+                            <i class="far fa-square fa-1x m-0 p-0" style="color:red"></i>
+                        </button>
+                    </div>
+                    <div class="col-3 text-right">
+                        <button class="btn btn-item-card btn-raw btn-raw-down btn-color"></button>
+                        <button id="btnMainContent" type="button" class="btn btn-item-card btn-sync p-1"></button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+    <script src="{{ asset('js/admin/rent/landlord.js') }}"></script>
+{% endblock %}

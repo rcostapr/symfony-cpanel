@@ -1,3 +1,37 @@
+$.datepicker.regional.pt = {
+    closeText: "Fechar",
+    prevText: "Anterior",
+    nextText: "Seguinte",
+    currentText: "Hoje",
+    monthNames: [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro",
+    ],
+    monthNamesShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+    dayNames: ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"],
+    dayNamesShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+    dayNamesMin: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+    weekHeader: "Sem",
+    dateFormat: "dd/mm/yy",
+    firstDay: 1,
+    isRTL: false,
+    showMonthAfterYear: false,
+    yearSuffix: "",
+};
+$.datepicker.setDefaults($.datepicker.regional.pt);
+$.fn.select2.defaults.set("theme", "bootstrap4");
+$.fn.select2.defaults.set("language", "pt");
+Dropzone.autoDiscover = false;
 var dashboard = JSON.parse(localStorage.dashboard || "{}");
 $(function () {
     "use strict"; // Start of use strict
@@ -120,4 +154,32 @@ $(function () {
             window.location.replace($(this).attr("href"));
         });
     });
+
+    $("#adminmodal").on("hidden.bs.modal", function (e) {
+        $(this).find(".modal-title").empty();
+        $(this).find(".modal-body").empty();
+        if (!$(this).find(".modal-dialog").hasClass("modal-xl")) {
+            $(this).find(".modal-dialog").addClass("modal-xl");
+        }
+    });
+
+    $(".btn-active").on("click", function () {
+        app.toggleActive($(this));
+    });
+
+    registerRawData();
 }); // End of use strict
+
+function registerRawData() {
+    $(".btn-raw").on("click", function () {
+        if ($(this).hasClass("btn-raw-up")) {
+            $(this).removeClass("btn-raw-up");
+            $(this).addClass("btn-raw-down");
+        } else {
+            $(this).removeClass("btn-raw-down");
+            $(this).addClass("btn-raw-up");
+        }
+        let element = $(this).closest(".card").find(".card-body");
+        $(element).slideToggle(500);
+    });
+}

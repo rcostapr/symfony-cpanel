@@ -28,7 +28,7 @@ $yellow: #f6c23e !default;
 $green: #1cc88a !default;
 $teal: #20c9a6 !default;
 $cyan: #36b9cc !default;
-$collapsed-background: rgba($blue-2, 0.9) !default;
+$collapsed-background: rgba($blue, 0.5) !default;
 $collapsed-selected: #002630 !default;
 $collapse-button: #004d61 !default;
 $brand-color: #ebe717 !default;
@@ -47,8 +47,7 @@ $yiq-contrasted-threshold: 195 !default;
 $body-color: $gray-600 !default;
 
 $font-family-sans-serif:
-  Nunito
-  // Cross-platform generic font family (default user interface font)
+  Nunito // Cross-platform generic font family (default user interface font)
   system-ui,
   // Safari for macOS and iOS (San Francisco)
   -apple-system,
@@ -57,15 +56,18 @@ $font-family-sans-serif:
   // Android
   Roboto,
   // Basic web fallback
-  "Helvetica Neue", Arial,
+  "Helvetica Neue",
+  Arial,
   // Linux
   "Noto Sans",
   "Liberation Sans",
   // Sans serif fallback
   sans-serif,
   // Emoji fonts
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji" !default;
 
 $font-weight-light: 300 !default;
 // $font-weight-base: 400;
@@ -103,23 +105,22 @@ $transition-collapse: height 0.15s ease !default;
 $dropdown-font-size: 0.85rem;
 $dropdown-border-color: $border-color;
 
-
 $colors: () !default;
 $colors: map-merge(
   (
-    "blue":       $blue,
-    "indigo":     $indigo,
-    "purple":     $purple,
-    "pink":       $pink,
-    "red":        $red,
-    "orange":     $orange,
-    "yellow":     $yellow,
-    "green":      $green,
-    "teal":       $teal,
-    "cyan":       $cyan,
-    "white":      $white,
-    "gray":       $gray-600,
-    "gray-dark":  $gray-800
+    "blue": $blue,
+    "indigo": $indigo,
+    "purple": $purple,
+    "pink": $pink,
+    "red": $red,
+    "orange": $orange,
+    "yellow": $yellow,
+    "green": $green,
+    "teal": $teal,
+    "cyan": $cyan,
+    "white": $white,
+    "gray": $gray-600,
+    "gray-dark": $gray-800
   ),
   $colors
 );
@@ -127,14 +128,14 @@ $colors: map-merge(
 $theme-colors: () !default;
 $theme-colors: map-merge(
   (
-    "primary":    $bg-primary,
-    "secondary":  $secondary,
-    "success":    $success,
-    "info":       $info,
-    "warning":    $warning,
-    "danger":     $danger,
-    "light":      $light,
-    "dark":       $dark
+    "primary": $bg-primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
   ),
   $theme-colors
 );

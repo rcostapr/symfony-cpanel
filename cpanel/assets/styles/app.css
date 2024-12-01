@@ -11257,6 +11257,14 @@ table.dataTable tbody td:hover {
     font-weight: 900;
 }
 
+.btn-item-card:hover,
+.btn-item-card:focus,
+.btn-item-card:active,
+.btn-item-card:disabled{
+    box-shadow: none;
+    border-color: transparent !important;;
+}
+
 .btn-raw-down:before {
     content: "\f150";
     font: var(--fa-font-solid);

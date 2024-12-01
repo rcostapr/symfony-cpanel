@@ -55,9 +55,9 @@
             .collapse-inner {
                 background-color: $collapsed-background !important;
                 padding: 0.5rem 0;
-                min-width: 10rem;
+                min-width: 100%;
                 font-size: $dropdown-font-size;
-                margin: 0.25rem 0 1rem 0;
+                margin: -0.75rem 0 1rem 0;
 
                 .collapse-header {
                     margin: 0;
@@ -222,8 +222,8 @@
                 display: block;
                 width: 100%;
                 text-align: left;
-                padding: 1rem;
-                width: $sidebar-base-width;
+                padding: 0.75rem;
+                width: 100%;
 
                 i {
                     font-size: 0.85rem;

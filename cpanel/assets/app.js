@@ -38,6 +38,10 @@ window.Swal = Swal;
 import Dropzone from "dropzone";
 window.Dropzone = Dropzone;
 
+//Library
+import * as app from "./js/library";
+window.app = app;
+
 // require jQuery normally
 const $ = require("jquery");
 
