@@ -10,6 +10,10 @@ cd cpanel
 
 ```bash
 symfony server:start
+composer install
+yarn install
+yarn build
+php bin/console c:c
 ```
 
 ### Change PHP Version to 8.3
@@ -138,7 +142,6 @@ grant all privileges on cpanel.* to cpanel@localhost;
 composer require symfony/orm-pack
 composer require --dev symfony/maker-bundle
 ```
-#### Cr
 
 #### Create New Migration
 
@@ -314,6 +317,7 @@ require("@fortawesome/fontawesome-free");
 ```
 
 ## Add toastr to Project
+
 - https://github.com/CodeSeven/toastr
 - https://codeseven.github.io/toastr/demo.html
 
@@ -330,6 +334,7 @@ yarn add toastr
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -339,6 +344,7 @@ window.toastr = toastr
 ```
 
 ## Add SweetAlert2 to Project
+
 - https://sweetalert2.github.io
 
 ```bash
@@ -352,6 +358,7 @@ yarn add @sweetalert2/themes
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -360,6 +367,7 @@ yarn add @sweetalert2/themes
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -369,6 +377,7 @@ window.Swal = Swal
 ```
 
 ## Add jqueryui to Project
+
 - https://jqueryui.com
 
 ```bash
@@ -376,6 +385,7 @@ yarn add jquery-ui
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -384,6 +394,7 @@ yarn add jquery-ui
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -393,11 +404,13 @@ require("jquery-ui/ui/widgets/datepicker");s
 ```
 
 ## Add select2 to Project
+
 ```bash
 yarn add select2-ui
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -406,6 +419,7 @@ yarn add select2-ui
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -414,11 +428,13 @@ require("select2");
 ```
 
 ## Add Dropzone v6 to Project
+
 ```bash
 yarn add select2-ui
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -427,6 +443,7 @@ yarn add select2-ui
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -435,11 +452,13 @@ import Dropzone from "dropzone";
 ```
 
 ## Add Perfect Scrollbar 1.5.5 to Project
+
 ```bash
 yarn add perfect-scrollbar
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -448,6 +467,7 @@ yarn add perfect-scrollbar
 ```
 
 ### Javascript
+
 ```javascript
 # assets/app.js
 // ...
@@ -456,6 +476,9 @@ require("perfect-scrollbar");
 ```
 
 ## Add Datatables bootstrap 5 to project
+
+- [datatables](https://datatables.net/examples/styling/bootstrap5)
+
 ```bash
 # DataTables core *
 yarn add datatables.net-bs5
@@ -502,6 +525,7 @@ yarn add datatables.net-select-bs5
 # StateRestore
 yarn add datatables.net-staterestore-bs5
 ```
+
 ```bash
 "./js/vendor/datatables/jquery.dataTables.js",
 "./js/vendor/datatables/dataTables.bootstrap4.js",
@@ -514,13 +538,16 @@ yarn add datatables.net-staterestore-bs5
 "./js/vendor/datatables/buttons.html5.js",
 "./js/vendor/datatables/buttons.print.js",
 ```
+
 ### For the Buttons
+
 ```
 yarn add jszip
 yarn add pdfmake
 ```
 
 ### SCSS
+
 ```scss
 // assets/styles/global.scss
 // ...
@@ -530,7 +557,9 @@ yarn add pdfmake
 ```
 
 ### Javascript
+
 Working on this add buttons
+
 ```javascript
 # assets/app.js
 // ...

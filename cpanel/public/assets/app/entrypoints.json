@@ -1,0 +1,62 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/assets/app/runtime.bfbdaa97.js",
+        "/assets/app/755.287d4878.js",
+        "/assets/app/21.623b4ce4.js",
+        "/assets/app/699.c80407f0.js",
+        "/assets/app/41.931890da.js",
+        "/assets/app/app.3d92d9ae.js"
+      ],
+      "css": [
+        "/assets/app/699.4c72c88f.css",
+        "/assets/app/app.f5d1412b.css"
+      ]
+    },
+    "library": {
+      "js": [
+        "/assets/app/runtime.bfbdaa97.js",
+        "/assets/app/755.287d4878.js",
+        "/assets/app/21.623b4ce4.js",
+        "/assets/app/41.931890da.js",
+        "/assets/app/library.e0b73957.js"
+      ]
+    },
+    "boostrap_toastr": {
+      "js": [
+        "/assets/app/runtime.bfbdaa97.js",
+        "/assets/app/755.287d4878.js",
+        "/assets/app/boostrap_toastr.fcd041a2.js"
+      ]
+    },
+    "boostrap_sweetalert": {
+      "js": [
+        "/assets/app/runtime.bfbdaa97.js",
+        "/assets/app/755.287d4878.js",
+        "/assets/app/boostrap_sweetalert.6499e949.js"
+      ]
+    },
+    "boostrap_datepicker": {
+      "js": [
+        "/assets/app/runtime.bfbdaa97.js",
+        "/assets/app/755.287d4878.js",
+        "/assets/app/boostrap_datepicker.7ff9e99b.js"
+      ]
+    }
+  },
+  "integrity": {
+    "/assets/app/runtime.bfbdaa97.js": "sha384-HQBXhQ7fM0WejV2+/iDSZqR0WpYQYGv543Q3Q5Tn/lL6K8PXDJQj9pnp0Gx48UjN",
+    "/assets/app/755.287d4878.js": "sha384-5yznM4UkJAVIOIjXgOC/Pkf5o5X8/CtwqI7Qf0bPmmciWnLJI3grzuT6XutlQVZb",
+    "/assets/app/21.623b4ce4.js": "sha384-JyBQeN9qW1/hsGes02GnwE6XgxllKooSibA78xnf++kOmm/FgYvXoiiUb1VZTPrJ",
+    "/assets/app/699.c80407f0.js": "sha384-CMEEppwlKDRTHPxsTly7BPkC94se2yW3PfHwtPpxtzXrDQFX8Fklsc99MaP+6J9b",
+    "/assets/app/41.931890da.js": "sha384-dYmDz6QZdW6ROOKcCUW8qMYiu5dCZQqDF7NbJnFj723MBrNeBEPUVD5qe/T24Mz6",
+    "/assets/app/app.3d92d9ae.js": "sha384-OVA75yL2yjdR682JdWwqDLvpG+P4bb1EYN2MEugIc9I3AvMc9i+luCRHY/T+SmLM",
+    "/assets/app/699.4c72c88f.css": "sha384-vCySZFw+3fKDPgBbnCtKUrFRd0YJsB7jF+j2CK/CrlEjFSSyzs5zRx+R+Fb8c07g",
+    "/assets/app/app.f5d1412b.css": "sha384-LqUFyGKMQbrkhFN8BCFgBjxf2j5zcE37foffdLyC857M5ZF2AxGeH/EBjYcfebyQ",
+    "/assets/app/library.e0b73957.js": "sha384-7iT3/S3t4BUZWgDY+M6S79hrYqBuPrecP5YsQUcc3dOjShHgh6Hj2Ewwix75wX2W",
+    "/assets/app/boostrap_toastr.fcd041a2.js": "sha384-Br0lZVSFMwUmnLbD+xpaQ5JZ0xnowGU2td7iTg7waSlRHJp6YV4I52X/mUCGlZ9B",
+    "/assets/app/boostrap_sweetalert.6499e949.js": "sha384-6BkRbN5InepMr82nzOTF1s1OJGKia/nkWPIqCl2fYzp2TJyueoQQ20NH69QeEEtH",
+    "/assets/app/boostrap_datepicker.7ff9e99b.js": "sha384-b2Aeg1PZNGh27Lpu34D7u5Tu7TUSNJzqZmTflTpbK9rxMOtrhScNmme/vFvfyBpj"
+  }
+}
