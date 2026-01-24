@@ -539,9 +539,17 @@ window.DataTable = DataTable;
 // ...
 ```
 
-## TODO: NEXT
+## User Authentication
 
-- datatables
+- Entity
+- UserRepository
+
+## Currrent
+
+Update Admin Dashboard top toolbar
+admin/partials/topbar.html.twig
+
+## TODO: NEXT
 
 - chartJS
 - apexchartJS

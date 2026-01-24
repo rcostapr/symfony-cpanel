@@ -14,6 +14,19 @@ Encore
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
 
+    .copyFiles({
+        from: "./assets/img",
+
+        // optional target path, relative to the output dir
+        to: "images/[path][name].[ext]",
+
+        // if versioning is enabled, add the file hash too
+        //to: "images/[path][name].[hash:8].[ext]",
+
+        // only copy files matching this pattern
+        pattern: /\.(png|jpg|jpeg|gif|ico|svg)$/,
+    })
+
     /*
      * ENTRY CONFIG
      *
@@ -21,6 +34,8 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry("app", ["./assets/app.js", "./assets/js/library.js", "./assets/js/cpanel.js"])
+    .addEntry("app_login", ["./assets/login/form-utils.js", "./assets/login/login.js", "./assets/login/login.css"])
+    .addEntry("app_home", ["./assets/js/pages/home.js", "./assets/styles/pages/home.css"])
 
     // App Library
     .addEntry("library", ["./assets/js/library.js"])
