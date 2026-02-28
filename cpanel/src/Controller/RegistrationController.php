@@ -24,14 +24,16 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
-    #[Route('/admin/register', name: 'app_register')]
+    #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
+
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
@@ -39,27 +41,29 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
+            $user->setName("");
 
             $entityManager->persist($user);
             $entityManager->flush();
 
             // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation(
-                'app_verify_email',
-                $user,
-                (new TemplatedEmail())
-                    ->from(new Address('root@neoamd.myfeup.com', 'Cpanel Admin'))
-                    ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
-            );
+            //$this->emailVerifier->sendEmailConfirmation(
+            //    'app_verify_email',
+            //    $user,
+            //    (new TemplatedEmail())
+            //        ->from(new Address('root@neoamd.myfeup.com', 'Cpanel Admin'))
+            //        ->to($user->getEmail())
+            //        ->subject('Please Confirm your Email')
+            //        ->htmlTemplate('registration/confirmation_email.html.twig')
+            //);
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('admin_home');
+            $this->addFlash('success', 'Your registration was successful. You may now proceed to log in using your email and password.');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
+            'registrationForm' => $form,
         ]);
     }
 

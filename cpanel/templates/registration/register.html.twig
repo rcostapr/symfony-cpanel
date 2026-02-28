@@ -1,24 +1,68 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_login.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}CPanel Register{% endblock %}
 
-{% block body %}
+{% block header %}
+    <div class="register-header">
+        <h2><a href="/">CPanel</a></h2>
+        <h3><a href="{{ path('app_login') }}">Sign in to your account</a></h3>
+        <p>Register new account</p>
+    </div>
+{% endblock %}
+
+{% block form %}
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
-
+    <div class="register-header">
+        <h3>User Registration</h3>
+    </div>
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        <div class="form-group">
+            <div class="input-wrapper">
+                {{ form_widget(registrationForm.email) }}
+                {{ form_label(registrationForm.email) }}
+                <span class="focus-border"></span>
+            </div>
+            <span class="error-message{% if form_errors(registrationForm.email) %} show{% endif %}" id="passwordError">{{ form_errors(registrationForm.email) }}</span>
+        </div>
+        <div class="form-group">
+            <div class="input-wrapper password-wrapper">
+                {{ form_widget(registrationForm.plainPassword) }}
+                {{ form_label(registrationForm.plainPassword) }}
+                <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
+                    <span class="eye-icon"></span>
+                </button>
+                <span class="focus-border"></span>
+            </div>
+            <span class="error-message{% if form_errors(registrationForm.plainPassword) %} show{% endif %}" id="passwordError">{{ form_errors(registrationForm.plainPassword) }}</span>
+        </div>
+
+        <div class="form-options">
+            <label class="remember-wrapper">
+                {{ form_widget(registrationForm.agreeTerms) }}
+                <span class="checkbox-label">
+                    <span class="checkmark"></span>
+                    Agree terms
+                </span>
+            </label>
+            <span class="error-message{% if form_errors(registrationForm.agreeTerms) %} show{% endif %}" id="passwordError">{{ form_errors(registrationForm.agreeTerms) }}</span>
+        </div>
 
         <!-- Submit button -->
-		<button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="login-btn btn">
+            <span class="btn-text">Register</span>
+            <span class="btn-loader"></span>
+        </button>
     {{ form_end(registrationForm) }}
+{% endblock %}
+{% block social_login %}
+<div class="success-message" id="successMessage">
+    <div class="success-icon">✓</div>
+    <h3>Register Successful!</h3>
+    <p>Redirecting to login...</p>
+</div>
 {% endblock %}

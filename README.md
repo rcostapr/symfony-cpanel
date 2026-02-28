@@ -54,6 +54,80 @@ sudo apt install symfony-cli
 symfony server:ca:install
 ```
 
+## Install Apache Certificates
+
+### Apache Virtualhost
+
+```bash
+# /etc/apache2/sites-available/cpanel.ubenergia.com-ssl.conf
+<VirtualHost *:443>
+        ServerAdmin rcosta@neoamd
+        DocumentRoot /home/rcosta/html/cpanel.ubenergia.com/cpanel/public
+        ServerName cpanel.ubenergia.com
+        ErrorLog "/home/rcosta/html/cpanel.ubenergia.com/logs/cpanel.ubenergia.com-error.log"
+        CustomLog "/home/rcosta/html/cpanel.ubenergia.com/logs/cpanel.ubenergia.com-access.log" common
+        <Directory /home/rcosta/html/cpanel.ubenergia.com/cpanel/public>
+            Options +ExecCGI -Indexes +FollowSymlinks
+
+            <IfModule mod_negotiation.c>
+                Options -MultiViews
+            </IfModule>
+
+            <IfModule mod_rewrite.c>
+                RewriteEngine On
+
+                RewriteCond %{REQUEST_URI}::$0 ^(/.+)/(.*)::\2$
+                RewriteRule .* - [E=BASE:%1]
+
+                RewriteCond %{HTTP:Authorization} .+
+                RewriteRule ^ - [E=HTTP_AUTHORIZATION:%0]
+
+                RewriteCond %{ENV:REDIRECT_STATUS} =""
+                RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
+
+                RewriteCond %{REQUEST_FILENAME} !-f
+                RewriteRule ^ %{ENV:BASE}/index.php [L]
+            </IfModule>
+
+            AddHandler cgi-script .cgi	.py
+            AllowOverride None
+            Require all granted
+            FallbackResource /index.php
+        </Directory>
+        SSLEngine on
+        SSLVerifyClient none
+        SSLCertificateFile /etc/ssl/certs/cpanel.ubenergia.com.cert
+        SSLCertificateKeyFile /etc/ssl/private/cpanel.ubenergia.com.ca
+</VirtualHost>
+```
+
+### Generate Certificates
+
+```bash
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/cpanel.ubenergia.com.ca -out /etc/ssl/certs/cpanel.ubenergia.com.cert -subj "/C=PT/ST=PORTUGAL/L=PORTO/O=CPANEL, Inc./OU=IT/emailAddress=rcosta@neoamd.myfeup.com/CN=cpanel.ubenergia.com"
+```
+
+### Apply Apache Configuration
+
+```bash
+sudo a2ensite cpanel.ubenergia.com-ssl.conf
+systemctl reload apache2
+```
+
+### Force HTTPS or HTTP for different URLs 
+
+```yaml
+# config/packages/security.yaml
+security:
+    # ...
+
+    access_control:
+        - { path: '^/secure', roles: ROLE_ADMIN, requires_channel: https }
+        - { path: '^/login', roles: PUBLIC_ACCESS, requires_channel: https }
+        # catch all other URLs
+        - { path: '^/', roles: PUBLIC_ACCESS, requires_channel: https }
+```
+
 ## Install Node.js Ubuntu
 
 ```

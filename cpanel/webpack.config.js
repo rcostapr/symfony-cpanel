@@ -34,7 +34,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry("app", ["./assets/app.js", "./assets/js/library.js", "./assets/js/cpanel.js"])
-    .addEntry("app_login", ["./assets/login/form-utils.js", "./assets/login/login.js", "./assets/login/login.css"])
+    .addEntry("app_login", ["./assets/login/login.js", "./assets/login/login.css"])
     .addEntry("app_home", ["./assets/js/pages/home.js", "./assets/styles/pages/home.css"])
 
     // App Library

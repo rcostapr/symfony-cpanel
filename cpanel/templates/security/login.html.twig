@@ -3,9 +3,9 @@
 {% block title %}CPanel Login{% endblock %}
 
 {% block form %}
-    <form method="post" class="login-form" id="loginForm" novalidate>
+    <form name="login_form" action="{{ path('app_login') }}" method="post" class="login-form" id="loginForm" novalidate>
         {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class="error-message show" style="margin-bottom: 10px">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
         {% if app.user %}
@@ -36,8 +36,7 @@
             <span class="error-message" id="passwordError"></span>
         </div>
 
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"
         >
 
         {#

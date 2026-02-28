@@ -25,3 +25,7 @@ services:
 
     App\Service\AppInfo:
         arguments: ['%kernel.project_dir%']
+
+    redirect.after.login:
+        class: App\Security\AfterLoginRedirection
+        arguments: ['@router']

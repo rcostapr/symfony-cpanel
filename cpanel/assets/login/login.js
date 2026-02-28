@@ -1,30 +1,39 @@
 // Login Form 1 - Glassmorphism Style JavaScript
 // This file extends form-utils.js with form-specific functionality
 
+//const FormUtils = require("./form-utils");
+import FormUtils from "./form-utils";
 class LoginForm1 {
     constructor() {
         this.form = document.getElementById("loginForm");
+        this.formName = this.form.getAttribute("name");
+
         this.submitBtn = this.form.querySelector(".login-btn");
         this.passwordToggle = document.getElementById("passwordToggle");
-        this.passwordInput = document.getElementById("password");
+        this.passwordInput = document.getElementById("_password");
         this.successMessage = document.getElementById("successMessage");
         this.isSubmitting = false;
 
-        this.validators = {
-            email: FormUtils.validateEmail,
-            password: FormUtils.validatePassword,
-        };
+        if (this.formName == "registration_form") {
+            this.passwordInput = document.getElementById("registration_form_plainPassword");
+            this.validators = {
+                registration_form_email: FormUtils.validateEmail,
+                registration_form_plainPassword: FormUtils.validatePassword,
+            };
+        }
 
         this.init();
     }
 
     init() {
-        this.addEventListeners();
-        FormUtils.setupFloatingLabels(this.form);
-        this.addInputAnimations();
+        //this.addEventListeners();
+        //FormUtils.setupFloatingLabels(this.form);
+        //this.addInputAnimations();
         FormUtils.setupPasswordToggle(this.passwordInput, this.passwordToggle);
-        this.setupSocialButtons();
-        FormUtils.addSharedAnimations();
+        if (this.formName == "login_form") {
+            //this.setupSocialButtons();
+        }
+        //FormUtils.addSharedAnimations();
     }
 
     addEventListeners() {

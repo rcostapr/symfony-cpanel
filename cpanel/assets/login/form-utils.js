@@ -169,9 +169,9 @@ class FormUtils {
                 }
 
                 // Add smooth transition effect
-                toggleButton.style.transform = "scale(0.9)";
+                //toggleButton.style.transform = "scale(0.9)";
                 setTimeout(() => {
-                    toggleButton.style.transform = "scale(1)";
+                    //toggleButton.style.transform = "scale(1)";
                 }, 150);
 
                 // Keep focus on password input
@@ -236,3 +236,6 @@ class FormUtils {
         }
     }
 }
+
+//module.exports = FormUtils;
+export default FormUtils;

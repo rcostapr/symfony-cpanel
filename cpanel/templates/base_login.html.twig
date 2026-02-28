@@ -13,11 +13,25 @@
 <body class="animated" id="page-top">
     <div class="login-container">
         <div class="login-card">
+            {% block header %}
             <div class="login-header">
                 <h2><a href="/">CPanel</a></h2>
                 <p>Sign in to your account</p>
             </div>
-            
+            {% endblock %}
+            {% for message in app.flashes('success') %}
+                <div class="success-message show" id="successMessage">
+                    <div class="success-icon">✓</div>
+                    <p>{{ message }}</p>
+                    
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('error') %}
+                <div class="error-message show" id="errorMessage">
+                    <div class="error-icon">✓</div>
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
             {% block form %}
             <form class="login-form" id="loginForm" novalidate>
                 <div class="form-group">
@@ -80,7 +94,7 @@
             </div>
 
             <div class="signup-link">
-                <p>Don't have an account? <a href="#">Sign up</a></p>
+                <p>Don't have an account? <a href="{{ path('app_register') }}">Sign up</a></p>
             </div>
 
             <div class="success-message" id="successMessage">
