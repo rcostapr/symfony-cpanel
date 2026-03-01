@@ -1,0 +1,41 @@
+{% extends 'base_login.html.twig' %}
+
+{% block title %}CPanel Password Recovery{% endblock %}
+
+{% block header %}
+    <div class="register-header">
+        <h2><a href="/">CPanel</a></h2>
+        <h3><a href="{{ path('app_login') }}">Sign in to your account</a></h3>
+        <p>Recovery Your Password</p>
+    </div>
+{% endblock %}
+
+{% block form %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <div class="register-header">
+        <h3>User Password Recovery</h3>
+    </div>
+    {{ form_errors(recoveryForm) }}
+
+    {{ form_start(recoveryForm) }}
+        <div class="form-group">
+            <div class="input-wrapper">
+                {{ form_widget(recoveryForm.email) }}
+                {{ form_label(recoveryForm.email) }}
+                <span class="focus-border"></span>
+            </div>
+            <span class="error-message{% if form_errors(recoveryForm.email) %} show{% endif %}" id="emailError">{{ form_errors(recoveryForm.email) }}</span>
+        </div>
+        <!-- Submit button -->
+        <button type="submit" class="login-btn btn">
+            <span class="btn-text">Send me the recovery link</span>
+            <span class="btn-loader"></span>
+        </button>
+    {{ form_end(recoveryForm) }}
+{% endblock %}
+{% block social_login %}
+
+{% endblock %}

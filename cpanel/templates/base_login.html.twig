@@ -28,7 +28,19 @@
             {% endfor %}
             {% for message in app.flashes('error') %}
                 <div class="error-message show" id="errorMessage">
-                    <div class="error-icon">✓</div>
+                    <div class="error-icon">❌</div>
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('warning') %}
+                <div class="warning-message show" id="warningMessage">
+                    <div class="warning-icon">⚠️</div>
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('info') %}
+                <div class="info-message show" id="infoMessage">
+                    <div class="info-icon">❗</div>
                     <p>{{ message }}</p>
                 </div>
             {% endfor %}
