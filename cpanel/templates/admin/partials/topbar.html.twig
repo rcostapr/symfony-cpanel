@@ -98,7 +98,7 @@
 		<li class="d-flex nav-item dropdown no-arrow">
 			<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<div class="user-nav d-sm-flex d-none d-lg-inline">
-					<span class="mr-2 d-none d-lg-block small text-right">{{ app.user.name }}</span>
+					<span class="mr-2 d-none d-lg-block small text-right">{{ app.user.username }}</span>
 					<span class="mr-2 d-none d-lg-block small text-right">{{ app.user.userIdentifier }}</span>
 				</div>
 				{% if app.session.get('image') is not empty %}

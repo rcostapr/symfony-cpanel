@@ -17,8 +17,8 @@
 	</div>
 
 	<!-- Nav Item - Dashboard -->
-	<li class="nav-item{{ app.request.pathinfo == '/admin' ? ' active' : '' }}">
-		<a class="nav-link" href="/admin">
+	<li class="nav-item{{ app.request.pathinfo == dashboard_home_path() ? ' active' : '' }}">
+		<a class="nav-link" href="{{ dashboard_home_path() }}">
 			<i class="fa-solid fa-gauge"></i>
 			<span>Dashboard</span>
 		</a>

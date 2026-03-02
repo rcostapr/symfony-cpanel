@@ -28,4 +28,4 @@ services:
 
     redirect.after.login:
         class: App\Security\AfterLoginRedirection
-        arguments: ['@router']
+        arguments: ['@router','@security.helper']

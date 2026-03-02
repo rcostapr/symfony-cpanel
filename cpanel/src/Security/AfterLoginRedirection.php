@@ -15,21 +15,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
+use Symfony\Bundle\SecurityBundle\Security;
 
 class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
 {
-    /**
-     * @var \Symfony\Component\Routing\RouterInterface
-     */
-    private $router;
 
     /**
      * @param RouterInterface $router
      */
-    public function __construct(RouterInterface $router)
-    {
-        $this->router = $router;
-    }
+    public function __construct(private RouterInterface $router, private Security $security) {}
 
     /**
      * @param Request $request
@@ -51,5 +45,21 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
             $redirection = new RedirectResponse($this->router->generate('app_home'));
 
         return $redirection;
+    }
+
+    public function authenticatedUserHomePath()
+    {
+        $roles = $this->security->getToken()->getRoleNames();
+        // If is a admin or super admin we redirect to the backoffice area
+        if (in_array('ROLE_ADMIN', $roles, true) || in_array('ROLE_SUPER_ADMIN', $roles, true))
+            $path = $this->router->generate('admin_home');
+        // otherwise, if is a commercial user we redirect to the crm area
+        elseif (in_array('ROLE_USER', $roles, true))
+            $path = $this->router->generate('user_home');
+        // otherwise we redirect user to the member area
+        else
+            $path = $this->router->generate('app_home');
+
+        return $path;
     }
 }
