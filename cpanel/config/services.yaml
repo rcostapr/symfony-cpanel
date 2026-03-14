@@ -25,6 +25,10 @@ services:
     App\Service\AppInfo:
         arguments: ['%kernel.project_dir%']
 
+    App\Service\Render:
+        arguments: ['@twig','@App\Repository\ModuleRepository']
+        public: true
+
     redirect.after.login:
         class: App\Security\AfterLoginRedirection
         arguments: ['@router','@security.helper']

@@ -1,23 +1,32 @@
-<table class="table table-bordered table-striped" id="modules-table">
+<table class="table table-secondary table-bordered table-striped" id="modules-table">
 	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Actions</th>
+		<tr class="">
+			<th scope="col" style="white-space: nowrap;width: 1%;">ID</th>
+			<th scope="col">Name</th>
+			<th scope="col">Description</th>
+			<th scope="col" style="white-space: nowrap;width: 1%;">Menu Order</th>
+			<th scope="col" style="white-space: nowrap;width: 1%;">Related Menu</th>
+			<th scope="col">Actions</th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for module in dbmodules %}
 			<tr data-id="{{ module.id }}">
-				<td>{{ module.id }}</td>
+				<td style="white-space: nowrap;width: 1%;">{{ module.id }}</td>
 				<td>{{ module.name }}</td>
 				<td>{{ module.description }}</td>
+				<td style="white-space: nowrap;width: 1%; text-align: center;">{{ module.menuorder }}</td>
+				<td style="white-space: nowrap;width: 1%; text-align: center;">
+					{% if module.menuid %}
+						{{ module.menuid.name }}
+					{% else %}
+						<span class="text-muted">No related menu</span>
+					{% endif %}
 				<td>
-					<button class="btn btn-sm btn-primary btn-edit-module" data-id="{{ module.id }}" title="Edit Module">
+					<button class="btn btn-sm btn-outline-dark btn-edit-module" data-id="{{ module.id }}" title="Edit Module">
 						<i class="fas fa-edit"></i>
 					</button>
-					<button class="btn btn-sm btn-danger btn-delete-module" data-id="{{ module.id }}" title="Delete Module">
+					<button class="btn btn-sm btn-outline-danger btn-delete-module" data-id="{{ module.id }}" title="Delete Module">
 						<i class="fas fa-trash-alt"></i>
 					</button>
 				</td>

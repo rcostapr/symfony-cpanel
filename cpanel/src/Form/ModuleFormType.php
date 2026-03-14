@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use function PHPSTORM_META\type;
+
 class ModuleFormType extends AbstractType
 {
     private array $modules;
@@ -73,7 +75,6 @@ class ModuleFormType extends AbstractType
                 ],
                 'class' => Module::class,
                 'choice_label' => 'label',
-                'choice_value' => 'id',
                 'query_builder' => function (ModuleRepository $repo) {
                     return $repo->createQueryBuilder('c')
                         ->orderBy('c.name', 'ASC');

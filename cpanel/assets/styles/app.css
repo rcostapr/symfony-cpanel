@@ -1819,7 +1819,7 @@ pre code {
 .table-primary,
 .table-primary>th,
 .table-primary>td {
-    background-color: #b8c2b9;
+    background-color: #505550;
 }
 
 .table-primary th,
@@ -10636,7 +10636,7 @@ table.dataTable tbody .odd {
 table.dataTable thead th,
 table.dataTable thead td {
     background-color: #002605;
-    color: whitesmoke;
+    color: #282828;
 }
 
 table.dataTable tbody {
@@ -12269,4 +12269,9 @@ body.sidebar-toggled footer.sticky-footer {
     @media  (min-width: 992px) {
             min-width: 150px;
     }
+}
+
+.swal-wide {
+    width: 992px !important;
+    font-size: 1.2rem !important;
 }

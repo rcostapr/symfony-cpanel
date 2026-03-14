@@ -15,7 +15,8 @@
 	<!-- Page Wrapper -->
 		<div
 		id="wrapper"> <!-- Sidebar -->
-		{% include 'admin/partials/sidebar.html.twig' %}
+		{{ render(controller('App\\Service\\Render::sidebarMenu', attributes = [], query = [])) }}
+		
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->

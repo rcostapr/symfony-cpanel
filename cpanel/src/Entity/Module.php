@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ModuleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Expr\AssignOp\Mod;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ModuleRepository::class)]
@@ -30,8 +31,9 @@ class Module
     #[ORM\Column(length: 255)]
     private ?string $class = null;
 
-    #[ORM\Column(type: 'integer', options: ['default' => null])]
-    private ?int $menuid = null;
+    #[ORM\ManyToOne(targetEntity: Module::class)]
+    #[ORM\JoinColumn(name: "menuid", referencedColumnName: "id", nullable: true)]
+    private ?Module $menuid = null;
 
     #[ORM\Column(type: 'integer', options: ['default' => 1])]
     private int $menuorder = 1;
@@ -101,12 +103,12 @@ class Module
         return $this;
     }
 
-    public function getMenuid(): int
+    public function getMenuid(): ?Module
     {
         return $this->menuid;
     }
 
-    public function setMenuid(int $menuid): static
+    public function setMenuid(?Module $menuid): self
     {
         $this->menuid = $menuid;
 
@@ -123,5 +125,10 @@ class Module
         $this->menuorder = $menuorder;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getId();
     }
 }

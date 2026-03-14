@@ -24,14 +24,14 @@
 		</a>
 	</li>
 	<!-- # config/packages/twig.yaml -->
-	{% if menu is defined and menu.sidebar is defined and menu.sidebar is not empty %}
-		{% for groupkey, group in menu.sidebar %}
+	{% if menu is defined and menu is not empty %}
+		{% for groupkey, group in menu %}
 			<!-- Group Nav item with one item only - no group  -->
 			{% if group.items|length == 1 %}
 				{% set item = group.items[0] %}
 				<li class="nav-item{{ app.request.pathinfo == item.href ? ' active' : '' }}">
 					<a class="nav-link" href="{{ item.href }}">
-						<i class="{{ item.class }}"></i>
+						{{ item.class|raw }}
 						<span>{{ item.text }}</span>
 					</a>
 				</li>
@@ -45,7 +45,7 @@
 						data-bs-target="#collapse{{ groupkey }}"
 						aria-expanded="false"
 						aria-controls="collapse{{ groupkey }}"> 
-						<i class="{{ group.class }}"></i>
+						{{ group.class|raw }}
 						<span>{{ group.text }}</span>
 					</button>
 					<div id="collapse{{ groupkey }}" class="collapse">
@@ -54,7 +54,7 @@
 							{% for item in group.items %}
 								<li class="nav-item{{ app.request.pathinfo == item.href ? ' active' : '' }}">
 									<a class="nav-link" href="{{ item.href }}">
-										<i class="{{ item.class }}"></i>
+										{{ item.class|raw }}
 										<span>{{ item.text }}</span>
 									</a>
 								</li>
@@ -74,7 +74,7 @@
 					{% for module in menu['modules'] %}
 						<li class="nav-item{{ app.request.pathinfo == '/' ~ group['url'] ~ '/' ~ module['url'] ? ' active' : '' }}">
 							<a class="nav-link" href="{{ '/' ~ group['url'] ~ '/' ~ module['url'] }}">
-								<i class="{{ module['class'] }}"></i>
+								{{ module['class']|raw }}
 								<span>{{ module['text'] }}</span>
 							</a>
 						</li>
@@ -92,14 +92,14 @@
 					<!-- Nav Item - Pages Collapse Menu -->
 					<li class="nav-item">
 						<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse{{ menu['menu'] }}" aria-expanded="true" aria-controls="collapse{{ menu['menu'] }}">
-							<i class="{{ menu['class'] }}"></i>
+							{{ menu['class']|raw }}
 							<span>{{ menu['text'] }}</span>
 						</a>
 						<div id="collapse{{ menu['menu'] }}" class="collapse" aria-labelledby="heading{{ menu['menu'] }}" data-parent="#accordionSidebar">
 							<div class="bg-white py-2 collapse-inner rounded">
 								{% for module in menu['modules'] %}
 									<a class="collapse-item{{ app.request.pathinfo == '/' ~ group['url'] ~ '/' ~ menu['url'] ~ '/' ~ module['url'] ? ' active' : '' }}" href="{{ '/' ~ group['url'] ~ '/' ~ menu['url'] ~ '/' ~ module['url'] }}">
-										<i class="{{ module['class'] }}"></i>
+										{{ module['class']|raw }}
 										<span>{{ module['text'] }}</span>
 									</a>
 								{% endfor %}

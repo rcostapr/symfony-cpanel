@@ -16,12 +16,24 @@ $(function () {
                 }
 
                 toastr.success(response.message);
-                $("#modaleditmodule").modal("hide");
-                $("#modaladdmodule").modal("hide");
-                $("#btn-main-content").trigger("click");
+                updateContent();
             },
             error: function (err, status, error) {
-                toastr.error("An error occurred while processing your request. " + error);
+                if (err.responseText) {
+                    Swal.fire({
+                        title: "Error",
+                        html: err.responseText,
+                        icon: "error",
+                        customClass: "swal-wide",
+                        onClose: () => {
+                            updateContent();
+                        },
+                    });
+                } else {
+                    console.log(err);
+                }
+
+                toastr.error("An error " + status + " occurred while processing your request. " + error);
             },
         });
     });
@@ -77,4 +89,10 @@ function setModuleEditBtn() {
             },
         });
     });
+}
+
+function updateContent() {
+    $("#modaleditmodule").modal("hide");
+    $("#modaladdmodule").modal("hide");
+    $("#btn-main-content").trigger("click");
 }

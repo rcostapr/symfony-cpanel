@@ -22,6 +22,38 @@ class ModuleRepository extends ServiceEntityRepository
         }
     }
 
+    public function remove(Module $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function findAllOrderedByMenuOrder(?int $menuid): array
+    {
+
+        // root menu items
+        if (!$menuid) {
+            return $this->createQueryBuilder('m')
+                ->orderBy('m.menuorder', 'ASC')
+                ->andWhere('m.menuid IS NULL')
+                ->getQuery()
+                ->getResult();
+        }
+
+        // child menu items
+        return $this->createQueryBuilder('m')
+            ->orderBy('m.menuorder', 'ASC')
+            ->andWhere('m.menuid = :menuid')
+            ->orWhere('m.id = :id')
+            ->setParameter('menuid', $menuid)
+            ->setParameter('id', $menuid)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Module[] Returns an array of Module objects
     //     */
