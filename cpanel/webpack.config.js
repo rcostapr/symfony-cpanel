@@ -14,7 +14,7 @@ Encore
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
 
-    .copyFiles({
+    /* .copyFiles({
         from: "./assets/img",
 
         // optional target path, relative to the output dir
@@ -25,7 +25,7 @@ Encore
 
         // only copy files matching this pattern
         pattern: /\.(png|jpg|jpeg|gif|ico|svg)$/,
-    })
+    }) */
 
     /*
      * ENTRY CONFIG
@@ -34,6 +34,8 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry("app", ["./assets/app.js", "./assets/js/library.js", "./assets/js/cpanel.js"])
+    .addStyleEntry("app_styles", ["./assets/styles/global.scss", "./assets/styles/app.css"])
+
     .addEntry("app_login", ["./assets/login/login.js", "./assets/login/login.css"])
     .addEntry("app_home", ["./assets/js/pages/home.js", "./assets/styles/pages/home.css"])
 
@@ -44,6 +46,9 @@ Encore
     .addEntry("boostrap_toastr", "./assets/boostrap/toastr.js")
     .addEntry("boostrap_sweetalert", "./assets/boostrap/sweetalert.js")
     .addEntry("boostrap_datepicker", "./assets/boostrap/datepicker.js")
+
+    // Pages Controllers
+    //.addEntry("admin_modules", ["./assets/controllers/admin/modules/index.js"])
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

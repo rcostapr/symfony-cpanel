@@ -1,0 +1,24 @@
+<!-- Modal -->
+<div class="modal fade" id="{{ modalId }}" role="dialog" aria-labelledby="defaultmodaltitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ modalTitle }}</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pb-0 mb-0">
+                {{ modalBody|default('') }}
+            </div>
+            <div class="modal-footer pt-0 mt-0 d-flex justify-content-end">
+                {% block ModalFooter %}
+                    
+                {% endblock %}
+                <button type="button" class="btn btn-info mt-1 p-0" data-bs-dismiss="modal">
+                    <i class="fas fa-times-circle fa-2x"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

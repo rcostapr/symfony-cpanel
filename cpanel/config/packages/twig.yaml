@@ -31,7 +31,7 @@ twig:
                             text: Property
                             href: /admin/rent/property
                             class: 'fa-solid fa-house'
-
+        icon: '%icon%'
 
 when@test:
     twig:

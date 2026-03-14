@@ -5,9 +5,16 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// any CSS you import will output into a single css file (app.css in this case)
-import "./styles/global.scss";
-import "./styles/app.css";
+// require jQuery normally
+const $ = require("jquery");
+
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;
+
+//// any CSS you import will output into a single css file (app.css in this case)
+// moved to webpack config (app_styles)
+//import "./styles/global.scss";
+//import "./styles/app.css";
 
 require("jquery-ui");
 require("jquery-ui/ui/widgets/datepicker");
@@ -41,9 +48,3 @@ window.Dropzone = Dropzone;
 //Library
 import * as app from "./js/library";
 window.app = app;
-
-// require jQuery normally
-const $ = require("jquery");
-
-// create global $ and jQuery variables
-global.$ = global.jQuery = $;

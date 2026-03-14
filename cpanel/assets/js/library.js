@@ -5,7 +5,7 @@ export function scrollToElement(element) {
             {
                 scrollTop: element.offset().top - $(window).height() / 2,
             },
-            1000
+            1000,
         );
     }
 }

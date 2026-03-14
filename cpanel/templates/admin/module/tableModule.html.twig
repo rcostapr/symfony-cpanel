@@ -1,0 +1,32 @@
+<table class="table table-bordered table-striped" id="modules-table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for module in dbmodules %}
+			<tr data-id="{{ module.id }}">
+				<td>{{ module.id }}</td>
+				<td>{{ module.name }}</td>
+				<td>{{ module.description }}</td>
+				<td>
+					<button class="btn btn-sm btn-primary btn-edit-module" data-id="{{ module.id }}" title="Edit Module">
+						<i class="fas fa-edit"></i>
+					</button>
+					<button class="btn btn-sm btn-danger btn-delete-module" data-id="{{ module.id }}" title="Delete Module">
+						<i class="fas fa-trash-alt"></i>
+					</button>
+				</td>
+			</tr>
+		{% else %}
+			<tr>
+				<td colspan="4" class="text-center">No modules found.</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<!-- Pagination -->

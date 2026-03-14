@@ -11,14 +11,18 @@
 		</title>
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
 		{% block stylesheets %}
-			{{ encore_entry_link_tags('app') }}
+			{{ encore_entry_link_tags('app_styles') }}
 		{% endblock %}
 	</head>
 
 	<body class="animated" id="page-top">
 		{% block body %}{% endblock %}
+		{% block modal %}
+			{{ include('admin/modal/admin.html.twig') }}
+		{% endblock %}
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
+		{% block page_javascript %}{% endblock %}
 	</body>
 </html>

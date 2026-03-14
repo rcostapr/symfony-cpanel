@@ -1,0 +1,56 @@
+{% extends 'admin/dashboard.html.twig' %}
+{% block content %}
+	<div class="cl-mcont ">
+		<div class="header d-flex">
+			<a href="#" class="btn btn-default btn-hover m-0 p-0 mr-2 waves-effect waves-light">
+				<i class="fa fa-2x fa-arrow-circle-o-left"></i>
+			</a>
+			<h3 class="mr-3">Modules</h3>
+		</div>
+
+		<div class="container-fluid">
+			<div class="card mb-4">
+
+				<div class="card-header d-flex flex-row justify-content-between align-items-end">
+					<h4 class="card-title">Add Modules</h4>
+					<div class="flex-grow-1 d-flex justify-content-center gap-3">
+						<button class="btn btn-info" id="btn-add-content" data-bs-toggle="modal" data-bs-target="#modaladdmodule">
+							<i class="{{ icon.addContent }}"></i>
+						</button>
+					</div>
+					<button class="btn btn-info" id="btn-main-content">
+						<i class="{{ icon.mainContent }}"></i>
+					</button>
+				</div>
+
+				<div class="card-body">
+					
+				</div>
+				<div class="card-footer d-flex justify-content-between">
+					<button type="button" class="btn btn-danger p-1 mt-1 btn-delete-all" title="APAGAR todos os PENDENTES">
+						<i class="fa fa-trash-o fa-2x"></i>
+					</button>
+					<button type="button" class="btn btn-info p-1 mt-1 btn-change-selected" title="Enviar para os Reservados">
+						<i class="fas fa-exchange-alt fa-2x"></i>
+					</button>
+					<button type="button" class="btn btn-warning p-1 mt-1 btn-faturacao-especial" title="Faturação Especial">
+						<i class="fa fa-bullseye fa-2x"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block modal %}
+	{% set modalBody %}
+		{{ form(form) }}
+	{% endset %}
+	<!-- Page Modal -->
+	{{ include('admin/modal/default.html.twig', { 'modalId': 'modaladdmodule', 'modalTitle': 'Add Module', 'modalBody': modalBody }) }}
+	{{ include('admin/modal/default.html.twig', { 'modalId': 'modaleditmodule', 'modalTitle': 'Edit Module', 'modalBody': 'EDIT' }) }}
+{% endblock %}
+
+{% block page_javascript %}
+	<script type="module" src="{{ asset('controllers/admin/modules/index.js') }}"></script>
+{% endblock %}

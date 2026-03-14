@@ -7,7 +7,6 @@ security:
         app_user_provider:
             entity:
                 class: App\Entity\User
-                property: email
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
@@ -36,17 +35,18 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/admin((?!/login).)*$, roles: ROLE_ADMIN, requires_channel: https }
-        - { path: ^/user, roles: ROLE_USER, requires_channel: https }
+        - { path: '^/admin((?!/login).)*$', roles: ROLE_ADMIN, requires_channel: https }
+        - { path: '^/admin/users', roles: ROLE_SUPER_ADMIN }
+        - { path: '^/user', roles: ROLE_USER, requires_channel: https }
         # The '^' at the beginning of the regex ensures that it matches the start of the path.
         # The '$' at the end of the regex ensures that it matches the end of the path.
         # This rule will match ONLY the exact path '/api/supplier'.
-        - { path: ^/api/supplier$, roles: ROLE_ADMIN, requires_channel: https }
+        - { path: '^/api/supplier$', roles: ROLE_ADMIN, requires_channel: https }
 
         # This rule will match paths like '/api/supplier/1', '/api/supplier/2', etc.
         # Note: This is a more generic pattern, so it's important to place it AFTER the more specific pattern above.
         # The '\d+' in the regex matches one or more digits.
-        - { path: ^/api/supplier/\d+$, roles: ROLE_USER, requires_channel: https }
+        - { path: '^/api/supplier/\d+$', roles: ROLE_USER_API, requires_channel: https }
         # catch all other URLs
         - { path: '^/', roles: PUBLIC_ACCESS, requires_channel: https }
 

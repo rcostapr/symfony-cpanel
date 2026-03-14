@@ -94,7 +94,7 @@ $(function () {
                     scrollTop: $($anchor.attr("href")).offset().top,
                 },
                 1000,
-                "easeInOutExpo"
+                "easeInOutExpo",
             );
         e.preventDefault();
     });

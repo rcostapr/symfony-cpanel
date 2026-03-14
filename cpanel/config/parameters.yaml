@@ -1,0 +1,22 @@
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    icon:
+        dashboard: 'fa-solid fa-gauge'
+        users: 'fa-solid fa-users'
+        settings: 'fa-solid fa-cogs'
+        modules: 'fa-solid fa-puzzle-piece'
+        logs: 'fa-solid fa-file-alt'
+        mainContent: 'fa-solid fa-arrows-rotate'
+        addContent: 'fa-solid fa-plus'
+        editContent: 'fa-solid fa-edit'
+        deleteContent: 'fa-solid fa-trash'
+        viewContent: 'fa-solid fa-eye'
+        content: 'fa-solid fa-file'
+        menu: 'fa-solid fa-bars'
+        menuItem: 'fa-solid fa-list'
+        module: 'fa-solid fa-puzzle-piece'
+        role: 'fa-solid fa-user-shield'
+        permission: 'fa-solid fa-lock'
+        afterLoginRedirection: 'fa-solid fa-arrow-right-to-bracket'
+        default: 'fa-solid fa-cube'
